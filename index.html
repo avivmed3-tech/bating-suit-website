@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self'">
 <title>La Shirel · בגדי ים בעיצוב אישי</title>
 <meta name="description" content="La Shirel — בגדי ים בעיצוב אישי לנשים, גברים וזוגות. גזרות מחמיאות, איכות גבוהה, סטים תואמים.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -238,6 +241,27 @@
     .hero h1{font-size:46px}
     .filters{gap:6px}.filters button{padding:8px 16px;font-size:12px}
   }
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
+  a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+  .cookie-banner{position:fixed;bottom:0;right:0;left:0;z-index:500;background:var(--ink);color:#fff;padding:18px 40px;display:flex;align-items:center;gap:20px;justify-content:space-between;font-size:13px;transform:translateY(100%);transition:transform .4s .3s;box-shadow:0 -4px 20px rgba(28,26,23,.18)}
+  .cookie-banner.show{transform:translateY(0)}
+  .cookie-banner p{margin:0;opacity:.88;max-width:680px;line-height:1.6}
+  .cookie-btn{background:#fff;color:var(--ink);padding:10px 26px;border-radius:30px;font-size:12px;letter-spacing:.1em;cursor:pointer;border:none;font-family:inherit;flex-shrink:0;transition:.25s}
+  .cookie-btn:hover{background:var(--accent);color:#fff}
+  .legal-modal{position:fixed;inset:0;z-index:310;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(28,26,23,.55);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:.35s}
+  .legal-modal.open{opacity:1;visibility:visible}
+  .legal-box{background:var(--bg);max-width:700px;width:100%;max-height:85vh;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+  .legal-head{display:flex;justify-content:space-between;align-items:center;padding:24px 32px;border-bottom:1px solid var(--line);flex-shrink:0}
+  .legal-head h3{font-family:var(--serif);font-size:26px;font-weight:400}
+  .legal-head button{font-size:22px;color:var(--soft);background:none;border:none;cursor:pointer;line-height:1}
+  .legal-body{overflow-y:auto;padding:32px;font-size:14px;line-height:1.8;color:var(--soft)}
+  .legal-body h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin:26px 0 10px;font-weight:500}
+  .legal-body h4:first-child{margin-top:0}
+  .legal-body p{margin-bottom:14px}
+  .legal-body ul{margin:0 20px 14px;padding:0}
+  .legal-body ul li{margin-bottom:6px}
+  @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+  @media(max-width:900px){.legal-head{padding:18px 22px}.legal-body{padding:22px}.cookie-banner{flex-direction:column;gap:12px;padding:16px 20px;text-align:center}.cookie-btn{width:100%;padding:12px}}
 </style>
 </head>
 <body>
@@ -247,9 +271,9 @@
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
   </button>
   <nav>
-    <a onclick="filterTo('women')">נשים</a>
-    <a onclick="filterTo('men')">גברים</a>
-    <a onclick="filterTo('couples')">זוגות</a>
+    <a href="#women" onclick="filterTo('women')">נשים</a>
+    <a href="#women" onclick="filterTo('men')">גברים</a>
+    <a href="#women" onclick="filterTo('couples')">זוגות</a>
     <a href="#about">הסיפור</a>
   </nav>
   <div class="logo">La Shirel</div>
@@ -268,7 +292,7 @@
         <span><i>New collection</i></span>
         <span><i>2026</i></span>
       </h1>
-      <a onclick="filterTo('women')" class="hero-btn" style="cursor:pointer">
+      <a href="#women" onclick="filterTo('women')" class="hero-btn">
         Shop now
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       </a>
@@ -297,15 +321,15 @@
     <h2>מצאי את הסגנון שלך</h2>
   </div>
   <div class="cats">
-    <div class="cat cat-1" onclick="filterTo('women')">
+    <div class="cat cat-1" onclick="filterTo('women')" tabindex="0" role="button" aria-label="צפייה בקולקציית נשים" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterTo('women')}">
       <div class="cat-bg"></div>
       <div class="cat-label"><h3>Women</h3><span>View collection <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span></div>
     </div>
-    <div class="cat cat-2" onclick="filterTo('men')">
+    <div class="cat cat-2" onclick="filterTo('men')" tabindex="0" role="button" aria-label="צפייה בקולקציית גברים" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterTo('men')}">
       <div class="cat-bg"></div>
       <div class="cat-label"><h3>Men</h3><span>View collection <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span></div>
     </div>
-    <div class="cat cat-3" onclick="filterTo('couples')">
+    <div class="cat cat-3" onclick="filterTo('couples')" tabindex="0" role="button" aria-label="צפייה בקולקציית זוגות" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();filterTo('couples')}">
       <div class="cat-bg"></div>
       <div class="cat-label"><h3>Couples</h3><span>Matching sets <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span></div>
     </div>
@@ -332,7 +356,7 @@
     <div class="kicker">הסיפור שלנו</div>
     <h2>עיצוב אישי, גזרה שמחמיאה לכל גוף</h2>
     <p>La Shirel נולד מתוך אהבה לים ולתחושת החופש שהוא נותן. כל פריט מעוצב בקפידה ונתפר באיכות גבוהה, עם דגש על גזרה שמחמיאה ומעצימה. מסטים זוגיים תואמים ועד ביקיני קלאסי — כאן תמצאי את הבגד ים שגורם לך להרגיש הכי את שיש.</p>
-    <a onclick="filterTo('women')" class="link-underline" style="cursor:pointer">לצפייה בקולקציה
+    <a href="#women" onclick="filterTo('women')" class="link-underline">לצפייה בקולקציה
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
     </a>
   </div>
@@ -342,7 +366,8 @@
   <h2>הצטרפי למשפחת La Shirel</h2>
   <p>קבלי עדכונים על קולקציות חדשות, מבצעים והטבות בלעדיות.</p>
   <div class="news-form">
-    <input type="email" placeholder="המייל שלך" id="newsInput">
+    <label for="newsInput" class="sr-only">כתובת מייל</label>
+    <input type="email" placeholder="המייל שלך" id="newsInput" autocomplete="email">
     <button onclick="joinNews()">הצטרפות</button>
   </div>
 </section>
@@ -355,26 +380,32 @@
     </div>
     <div class="foot-col">
       <h5>חנות</h5>
-      <a onclick="filterTo('women')">בגדי ים נשים</a>
-      <a onclick="filterTo('men')">בגדי ים גברים</a>
-      <a onclick="filterTo('couples')">סטים זוגיים</a>
+      <a href="#women" onclick="filterTo('women')">בגדי ים נשים</a>
+      <a href="#women" onclick="filterTo('men')">בגדי ים גברים</a>
+      <a href="#women" onclick="filterTo('couples')">סטים זוגיים</a>
     </div>
     <div class="foot-col">
       <h5>מידע</h5>
       <a href="#about">אודות</a>
-      <a onclick="toast('מדריך מידות בקרוב')">מדריך מידות</a>
-      <a onclick="toast('פרטי משלוח בקרוב')">משלוחים והחזרות</a>
+      <a href="#" onclick="event.preventDefault();openLegal('terms')">תקנון ומדיניות החזרות</a>
+      <a href="#" onclick="event.preventDefault();openLegal('privacy')">מדיניות פרטיות</a>
     </div>
     <div class="foot-col">
       <h5>עקבו אחרינו</h5>
-      <a href="https://www.instagram.com/la.shirell" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://wa.me/972544477734" target="_blank">WhatsApp</a>
-      <a href="https://wa.me/972544477734" target="_blank">יצירת קשר</a>
+      <a href="https://www.instagram.com/la.shirell" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://wa.me/972544477734" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="https://wa.me/972544477734" target="_blank" rel="noopener noreferrer">יצירת קשר</a>
     </div>
   </div>
   <div class="foot-bottom">
     <span>© 2026 La Shirel. כל הזכויות שמורות.</span>
-    <span>תקנון · מדיניות פרטיות · הצהרת נגישות</span>
+    <span>
+      <a href="#" onclick="event.preventDefault();openLegal('terms')" style="color:inherit">תקנון</a>
+      &nbsp;·&nbsp;
+      <a href="#" onclick="event.preventDefault();openLegal('privacy')" style="color:inherit">מדיניות פרטיות</a>
+      &nbsp;·&nbsp;
+      <a href="#" onclick="event.preventDefault();openLegal('accessibility')" style="color:inherit">הצהרת נגישות</a>
+    </span>
   </div>
 </footer>
 
@@ -385,32 +416,32 @@
     <button onclick="closeMenu()" aria-label="סגירה">✕</button>
   </div>
   <div class="menu-list">
-    <a onclick="menuGo('women')">
+    <a href="#women" onclick="menuGo('women')">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M5 22c0-4 3-7 7-7s7 3 7 7"/></svg>
       נשים
     </a>
-    <a onclick="menuGo('men')">
+    <a href="#women" onclick="menuGo('men')">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="4"/><path d="M5 22c0-4 3-7 7-7s7 3 7 7"/></svg>
       גברים
     </a>
-    <a onclick="menuGo('couples')">
+    <a href="#women" onclick="menuGo('couples')">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       סטים זוגיים
     </a>
-    <a onclick="closeMenu();openCart()">
+    <a href="#" onclick="event.preventDefault();closeMenu();openCart()">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
       סל הקניות
       <span class="menu-count" id="menuCount" style="display:none">0</span>
     </a>
-    <a href="https://www.instagram.com/la.shirell" target="_blank" rel="noopener" onclick="closeMenu()">
+    <a href="https://www.instagram.com/la.shirell" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
       Instagram · la.shirell
     </a>
-    <a href="https://wa.me/972544477734" target="_blank" rel="noopener" onclick="closeMenu()">
+    <a href="https://wa.me/972544477734" target="_blank" rel="noopener noreferrer" onclick="closeMenu()">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.2-3.7-.8-3.1-1.3-5.1-4.5-5.3-4.7-.1-.2-1.2-1.6-1.2-3.1S6.4 7 6.7 6.7c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3z"/></svg>
       וואטסאפ · 054-4477734
     </a>
-    <a onclick="closeMenu();document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <a href="#about" onclick="closeMenu();document.getElementById('about').scrollIntoView({behavior:'smooth'})">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       הסיפור שלנו
     </a>
@@ -449,9 +480,26 @@
   </div>
 </div>
 
-<a class="wa-float" href="https://wa.me/972544477734" target="_blank" aria-label="וואטסאפ">
+<a class="wa-float" href="https://wa.me/972544477734" target="_blank" rel="noopener noreferrer" aria-label="וואטסאפ - יצירת קשר">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.2-3.7-.8-3.1-1.3-5.1-4.5-5.3-4.7-.1-.2-1.2-1.6-1.2-3.1S6.4 7 6.7 6.7c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3z"/></svg>
 </a>
+
+<!-- Legal modals -->
+<div class="legal-modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+  <div class="legal-box">
+    <div class="legal-head">
+      <h3 id="legalTitle"></h3>
+      <button onclick="closeLegal()" aria-label="סגירה">✕</button>
+    </div>
+    <div class="legal-body" id="legalBody"></div>
+  </div>
+</div>
+
+<!-- Cookie consent banner -->
+<div class="cookie-banner" id="cookieBanner" role="region" aria-label="הודעת פרטיות">
+  <p>אתר זה משתמש בגופנים מ-Google Fonts (CDN חיצוני) הדורשים העברת כתובת IP לגוגל. לפרטים נוספים ראו <a href="#" onclick="event.preventDefault();closeCookie();openLegal('privacy')" style="color:inherit;text-decoration:underline">מדיניות הפרטיות</a> שלנו.</p>
+  <button class="cookie-btn" onclick="closeCookie()">הבנתי</button>
+</div>
 
 <div class="toast" id="toast">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
@@ -509,7 +557,11 @@ function renderProducts(filter="all"){
         <h4>${p.name}</h4>
         <div class="price">₪${p.price}${p.old?`<s>₪${p.old}</s>`:""}</div>
       </div>`;
+    card.setAttribute('tabindex','0');
+    card.setAttribute('role','button');
+    card.setAttribute('aria-label','צפייה במוצר ' + p.name);
     card.onclick=()=>openModal(p.id);
+    card.onkeydown=(e)=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openModal(p.id);}};
     grid.appendChild(card);
   });
   requestAnimationFrame(()=>document.querySelectorAll('.card').forEach(c=>observer.observe(c)));
@@ -638,21 +690,125 @@ function menuGo(cat){closeMenu();filterTo(cat);}
 function checkout(){
   if(!cart.length){toast("הסל ריק");return;}
   const phone="972544477734";
-  let msg="היי La Shirel! 🤍 אשמח להזמין:%0A%0A";
+  const lines=["היי La Shirel! 🤍 אשמח להזמין:",""];
   cart.forEach(c=>{
-    msg+=`▫ *${c.name}*%0A`;
-    msg+=`מידה: ${c.size}%0A`;
-    msg+=`כמות: ${c.qty}%0A`;
-    msg+=`מחיר: ₪${c.price*c.qty}%0A%0A`;
+    lines.push("▫ *"+c.name+"*");
+    lines.push("מידה: "+c.size);
+    lines.push("כמות: "+c.qty);
+    lines.push("מחיר: ₪"+c.price*c.qty);
+    lines.push("");
   });
   const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
-  msg+=`*סה״כ לתשלום: ₪${total}*`;
-  window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
+  lines.push("*סה״כ לתשלום: ₪"+total+"*");
+  window.open("https://wa.me/"+phone+"?text="+encodeURIComponent(lines.join('\n')),'_blank','noopener,noreferrer');
 }
 function toast(m){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
 function joinNews(){const i=document.getElementById('newsInput');if(i.value.includes('@')){toast("תודה שהצטרפת! 🤍");i.value="";}else{toast("נא להזין מייל תקין");}}
 window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>80));
 renderProducts();updateCart();
+
+// ===== Legal modals =====
+const legalContent={
+  terms:{
+    title:"תקנון ומדיניות החזרות",
+    body:`<h4>כללי</h4>
+<p>La Shirel היא מותג בגדי ים בעיצוב אישי הפועל בישראל. ההזמנות מתבצעות דרך שירות וואטסאפ. השימוש באתר ו/או ביצוע הזמנה מהווה הסכמה לתנאים אלה.</p>
+<h4>מחירים ותשלום</h4>
+<ul>
+<li>כל המחירים מוצגים בשקלים חדשים (₪) וכוללים מע"מ.</li>
+<li>התשלום מתבצע בתיאום ישיר מול הנציג/ה בוואטסאפ.</li>
+<li>המחירים עשויים להשתנות ללא הודעה מוקדמת.</li>
+</ul>
+<h4>משלוחים</h4>
+<ul>
+<li>משלוח חינם לכל הארץ בהזמנות מעל ₪350.</li>
+<li>הזמנות מתחת ל-₪350 — עלות משלוח תתואם בוואטסאפ.</li>
+<li>זמן אספקה: עד 7 ימי עסקים מאישור ההזמנה.</li>
+</ul>
+<h4>ביטול עסקה והחזרות</h4>
+<ul>
+<li>ניתן לבטל עסקה תוך 30 יום מקבלת המוצר, בהתאם לחוק הגנת הצרכן תשמ"א-1981.</li>
+<li>המוצר יש להחזיר במצבו המקורי, ללא שימוש, עם התגים המקוריים.</li>
+<li>לא ניתן להחזיר בגד ים שנעשה בו שימוש מטעמי היגיינה, אלא אם נמצא פגם ייצור.</li>
+<li>לביטול עסקה, יש לפנות בוואטסאפ: 054-4477734.</li>
+<li>ההחזר הכספי יבוצע תוך 14 ימי עסקים.</li>
+</ul>
+<h4>אחריות</h4>
+<p>La Shirel אחראית למוצרים פגומים או שגויים בלבד. לא תחול אחריות על נזקים שנגרמו עקב שימוש לא נכון.</p>
+<h4>יצירת קשר</h4>
+<p>לכל שאלה: וואטסאפ 054-4477734 | Instagram: la.shirell</p>`
+  },
+  privacy:{
+    title:"מדיניות פרטיות",
+    body:`<h4>מי אנחנו</h4>
+<p>La Shirel היא מותג בגדי ים ישראלי. מדיניות זו מסבירה כיצד אנו אוספים ומשתמשים במידע אישי, בהתאם לחוק הגנת הפרטיות תשמ"א-1981 ותיקוניו.</p>
+<h4>מידע שאנו אוספים</h4>
+<ul>
+<li><strong>כתובות מייל</strong> — אם נרשמת לניוזלטר שלנו.</li>
+<li><strong>פרטי הזמנה</strong> — שם, מידה, כמות, המועברים דרך וואטסאפ בעת ביצוע הזמנה.</li>
+<li><strong>כתובת IP</strong> — מועברת לשרתי Google עם טעינת גופנים (Google Fonts CDN). ראו מדיניות הפרטיות של Google.</li>
+</ul>
+<h4>כיצד נשתמש במידע</h4>
+<ul>
+<li>שליחת עדכונים על קולקציות ומבצעים (למנויי הניוזלטר בלבד).</li>
+<li>ניהול ועיבוד הזמנות.</li>
+<li>לא נעביר את פרטיך לגורם שלישי לצרכי שיווק.</li>
+</ul>
+<h4>זכויותיך</h4>
+<p>בהתאם לחוק, יש לך זכות לעיין במידע שנאסף עליך, לתקנו, ולבקש את מחיקתו. לבקשות: וואטסאפ 054-4477734.</p>
+<h4>אחסון מידע</h4>
+<p>כתובות המייל נשמרות בצורה מאובטחת ואינן מועברות לצדדים שלישיים. ניתן לבקש הסרה בכל עת.</p>
+<h4>עדכון מדיניות</h4>
+<p>מדיניות זו עודכנה לאחרונה: מאי 2026.</p>`
+  },
+  accessibility:{
+    title:"הצהרת נגישות",
+    body:`<h4>מחויבות לנגישות</h4>
+<p>La Shirel מחויבת להנגיש את האתר לכלל המשתמשים, לרבות אנשים עם מוגבלויות, בהתאם לתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשע"ג-2013 ולתקן הישראלי 5568.</p>
+<h4>רמת נגישות</h4>
+<p>אנו שואפים לעמוד ברמת WCAG 2.1 ברמת AA. הנגישות האתר נבדקת ומשופרת באופן שוטף.</p>
+<h4>פעולות שבוצעו</h4>
+<ul>
+<li>תגיות ARIA לאלמנטים אינטראקטיביים.</li>
+<li>ניווט מקלדת מלא בכל פונקציות האתר.</li>
+<li>תיוג שדות טופס בצורה מלאה.</li>
+<li>תמיכה ב-prefers-reduced-motion להפחתת אנימציות.</li>
+<li>ניגודיות צבעים עומדת בדרישות WCAG AA.</li>
+</ul>
+<h4>מגבלות ידועות</h4>
+<ul>
+<li>וידאו הרקע אינו כולל כתוביות (תוכן דקורטיבי בלבד).</li>
+</ul>
+<h4>דיווח על בעיות נגישות</h4>
+<p>נתקלת בבעיית נגישות? נשמח לשמוע ולתקן. פנה/י אלינו בוואטסאפ: 054-4477734 או ב-Instagram: la.shirell</p>
+<h4>תאריך עדכון</h4>
+<p>הצהרה זו עודכנה: מאי 2026.</p>`
+  }
+};
+function openLegal(type){
+  const d=legalContent[type];
+  document.getElementById('legalTitle').textContent=d.title;
+  document.getElementById('legalBody').innerHTML=d.body;
+  document.getElementById('legalModal').classList.add('open');
+  document.body.style.overflow="hidden";
+}
+function closeLegal(){
+  document.getElementById('legalModal').classList.remove('open');
+  document.body.style.overflow="";
+}
+document.getElementById('legalModal').addEventListener('click',e=>{if(e.target.id==='legalModal')closeLegal();});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.getElementById('legalModal').classList.contains('open'))closeLegal();
+});
+
+// ===== Cookie consent =====
+function closeCookie(){
+  document.getElementById('cookieBanner').classList.remove('show');
+  try{localStorage.setItem('cookie_ok','1');}catch(e){}
+}
+(function(){
+  try{if(!localStorage.getItem('cookie_ok'))setTimeout(()=>document.getElementById('cookieBanner').classList.add('show'),1200);}catch(e){}
+})();
 </script>
 </body>
 </html>
