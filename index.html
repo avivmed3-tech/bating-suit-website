@@ -153,9 +153,9 @@
   .modal.open{opacity:1;visibility:visible}
   .modal-card{background:var(--bg);max-width:920px;width:100%;max-height:88vh;border-radius:6px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;transform:scale(.96);transition:transform .4s;box-shadow:var(--shadow)}
   .modal.open .modal-card{transform:scale(1)}
-  .modal-img{position:relative;min-height:480px;background-size:cover;background-position:center top;background-repeat:no-repeat;background-color:var(--sand);user-select:none;-webkit-user-select:none;touch-action:pan-y}
-  .modal-img.swiping{transition:none}
-  .modal-img-inner{position:absolute;inset:0;background-size:cover;background-position:center top;background-repeat:no-repeat;transition:opacity .35s}
+  .modal-img{position:relative;min-height:540px;background-color:var(--sand);user-select:none;-webkit-user-select:none;touch-action:pan-y;overflow:hidden}
+  .modal-img-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(28px) brightness(.9);transform:scale(1.15);opacity:.55}
+  .modal-img-inner{position:absolute;inset:0;background-size:contain;background-position:center;background-repeat:no-repeat;transition:opacity .3s}
   .modal-close{position:absolute;top:16px;left:16px;z-index:6;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:18px;border:none;cursor:pointer}
   .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;z-index:5;cursor:pointer;transition:background .25s,transform .25s;color:var(--ink);border:none}
   .gallery-nav:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
@@ -368,6 +368,7 @@
 <div class="modal" id="modal">
   <div class="modal-card">
     <div class="modal-img" id="modalImg">
+      <div class="modal-img-blur" id="modalImgBlur"></div>
       <div class="modal-img-inner" id="modalImgInner"></div>
       <button class="modal-close" onclick="closeModal()" aria-label="סגירה">✕</button>
       <button class="gallery-nav prev" id="galPrev" onclick="galPrev()" aria-label="הקודם">
@@ -472,11 +473,12 @@ function openModal(id){
 }
 function renderGallery(){
   const imgs=modalState.images;
-  document.getElementById('modalImgInner').style.backgroundImage=`url('images/${imgs[modalState.imgIndex]}')`;
+  const src=`url('images/${imgs[modalState.imgIndex]}')`;
+  document.getElementById('modalImgInner').style.backgroundImage=src;
+  document.getElementById('modalImgBlur').style.backgroundImage=src;
   const multi=imgs.length>1;
   document.getElementById('galPrev').style.display=multi?'flex':'none';
   document.getElementById('galNext').style.display=multi?'flex':'none';
-  document.getElementById('galCounter').style.display=multi?'block':'none';
   document.getElementById('galCounter').textContent=`${modalState.imgIndex+1} / ${imgs.length}`;
   const dots=document.getElementById('galDots');
   if(multi){
