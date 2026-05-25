@@ -568,11 +568,16 @@ function closeCart(){document.getElementById('overlay').classList.remove('open')
 
 function checkout(){
   if(!cart.length){toast("הסל ריק");return;}
-  const phone="972542240554"; // ← להחליף למספר וואטסאפ אמיתי (בלי 0 בהתחלה)
+  const phone="972542240554";
   let msg="היי SHIREL DESIGN! 🤍 אשמח להזמין:%0A%0A";
-  cart.forEach(c=>{msg+=`• ${c.name} — מידה ${c.size} × ${c.qty} = ₪${c.price*c.qty}%0A`;});
+  cart.forEach(c=>{
+    msg+=`▫ *${c.name}*%0A`;
+    msg+=`מידה: ${c.size}%0A`;
+    msg+=`כמות: ${c.qty}%0A`;
+    msg+=`מחיר: ₪${c.price*c.qty}%0A%0A`;
+  });
   const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
-  msg+=`%0Aסה״כ: ₪${total}%0A%0Aשם:%0Aכתובת למשלוח:`;
+  msg+=`*סה״כ לתשלום: ₪${total}*`;
   window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
 }
 function toast(m){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
