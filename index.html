@@ -410,6 +410,7 @@ const products = [
   {id:10, name:"מונוכרום", cat:"women", type:"ביקיני", price:289, old:null, tag:null, img:"monochrome.webp", img2:"monochrome.webp", desc:"ביקיני בפסים שחור-לבן גרפיים. נקי, חד וקלאסי — לא יוצא מהאופנה לעולם."},
   {id:11, name:"פרובאנס", cat:"women", type:"ביקיני", price:309, old:null, tag:"להיט", img:"provence.webp", img2:"provence.webp", desc:"ביקיני פרחוני עדין בגווני סגול וורוד. רומנטי, נשי ומלא חיים."},
   {id:18, name:"לבנדר", cat:"women", type:"ביקיני", price:299, old:null, tag:null, img:"provence-2.webp", img2:"provence-2.webp", desc:"ביקיני בגווני לבנדר עדינים עם פרינט פרחוני. רך, נשי ועם נגיעה רומנטית של פרובאנס."},
+  {id:19, name:"איביזה · סט זוגי", cat:"couples", type:"סט תואם", price:599, old:null, tag:"חדש", img:"ibiza.webp", img2:"ibiza-2.webp", images:["ibiza.webp","ibiza-2.webp","ibiza-3.webp"], desc:"סט תואם לזוג בהדפס פייזלי-מנדלה בגווני כחול בהיר, אדום ולבן. ביקיני קושר לאישה עם פרטי טורקיז, ומכנס שחייה תואם לגבר. מושלם לחופשה ים-תיכונית."},
   {id:12, name:"לימונצ׳לו", cat:"women", type:"ביקיני", price:279, old:null, tag:null, img:"limoncello.webp", img2:"limoncello.webp", desc:"ביקיני צהוב שמשי עם מרקם עדין. צבע שמח שמדגיש שיזוף ומכניס קיץ."},
   {id:13, name:"ראפלס", cat:"women", type:"ביקיני", price:299, old:null, tag:null, img:"ruffles.webp", img2:"ruffles.webp", desc:"ביקיני ורוד בהדפס עם פרטי מלמלה. נשי ומפנק עם נגיעה רומנטית."},
   {id:14, name:"בלאן", cat:"women", type:"ביקיני", price:289, old:null, tag:null, img:"blanc.webp", img2:"blanc.webp", desc:"ביקיני לבן קלאסי ונקי. תמידי, מינimalist ומחמיא במיוחד על עור שזוף."},
@@ -422,6 +423,7 @@ let cart=[];
 let modalState={prod:null,size:"M",imgIndex:0,images:[]};
 
 function productImages(p){
+  if(Array.isArray(p.images)&&p.images.length)return p.images;
   return p.img===p.img2?[p.img]:[p.img,p.img2];
 }
 
