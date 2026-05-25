@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHUREL DESIGN · בגדי ים בעיצוב אישי</title>
-<meta name="description" content="SHUREL DESIGN — בגדי ים בעיצוב אישי לנשים, גברים וזוגות. גזרות מחמיאות, איכות גבוהה, סטים תואמים.">
+<title>SHIREL DESIGN · בגדי ים בעיצוב אישי</title>
+<meta name="description" content="SHIREL DESIGN — בגדי ים בעיצוב אישי לנשים, גברים וזוגות. גזרות מחמיאות, איכות גבוהה, סטים תואמים.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Heebo:wght@200;300;400;500;700&display=swap" rel="stylesheet">
@@ -153,8 +153,18 @@
   .modal.open{opacity:1;visibility:visible}
   .modal-card{background:var(--bg);max-width:920px;width:100%;max-height:88vh;border-radius:6px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;transform:scale(.96);transition:transform .4s;box-shadow:var(--shadow)}
   .modal.open .modal-card{transform:scale(1)}
-  .modal-img{position:relative;min-height:480px;background-size:cover;background-position:center top}
-  .modal-close{position:absolute;top:16px;left:16px;z-index:5;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:18px}
+  .modal-img{position:relative;min-height:480px;background-size:cover;background-position:center top;background-repeat:no-repeat;background-color:var(--sand);user-select:none;-webkit-user-select:none;touch-action:pan-y}
+  .modal-img.swiping{transition:none}
+  .modal-img-inner{position:absolute;inset:0;background-size:cover;background-position:center top;background-repeat:no-repeat;transition:opacity .35s}
+  .modal-close{position:absolute;top:16px;left:16px;z-index:6;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:18px;border:none;cursor:pointer}
+  .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;z-index:5;cursor:pointer;transition:background .25s,transform .25s;color:var(--ink);border:none}
+  .gallery-nav:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+  .gallery-nav.prev{right:14px}
+  .gallery-nav.next{left:14px}
+  .gallery-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:5}
+  .gallery-dots button{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.55);transition:.3s;border:none;padding:0;cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.18)}
+  .gallery-dots button.active{background:#fff;width:22px;border-radius:5px}
+  .gallery-counter{position:absolute;bottom:14px;right:14px;background:rgba(28,26,23,.55);color:#fff;font-size:11px;padding:5px 11px;border-radius:20px;z-index:5;letter-spacing:.08em;font-weight:300}
   .modal-info{padding:48px 44px;overflow-y:auto}
   .modal-info .kicker{font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
   .modal-info h2{font-family:var(--serif);font-size:38px;font-weight:400;line-height:1.05;margin-bottom:14px}
@@ -178,13 +188,35 @@
     header{padding:14px 20px}header.scrolled{padding:10px 20px}
     nav{display:none}.menu-toggle{display:flex;color:var(--ink)}
     header:not(.scrolled) .menu-toggle{color:#fff}
+    .logo{font-size:22px}.logo small{font-size:10px;letter-spacing:.34em}
     .section{padding:64px 20px}.hero-content{padding:0 24px 56px}
-    .cats{grid-template-columns:1fr;gap:14px}.cat{height:380px}
-    .grid{grid-template-columns:repeat(2,1fr);gap:28px 14px}
-    .editorial{grid-template-columns:1fr}.editorial-img{min-height:360px}.editorial-text{padding:48px 24px}
-    .modal-card{grid-template-columns:1fr;max-height:92vh}.modal-img{min-height:340px}.modal-info{padding:32px 26px}
+    .hero{min-height:520px}
+    .cats{grid-template-columns:1fr;gap:14px}.cat{height:340px}
+    .grid{grid-template-columns:repeat(2,1fr);gap:24px 12px}
+    .card-info h4{font-size:14px}.card-info .price{font-size:13px}
+    .editorial{grid-template-columns:1fr}.editorial-img{min-height:340px}.editorial-text{padding:48px 24px}
+    .modal{padding:0}
+    .modal-card{grid-template-columns:1fr;max-height:100vh;height:100vh;width:100vw;max-width:100vw;border-radius:0}
+    .modal-img{min-height:55vh;max-height:55vh}
+    .modal-info{padding:26px 22px 32px}
+    .modal-info h2{font-size:28px}
+    .modal-info .m-price{font-size:19px;margin-bottom:16px}
+    .modal-info p.desc{font-size:13px;margin-bottom:20px}
+    .sizes button{width:42px;height:42px}
+    .gallery-nav{width:38px;height:38px}
+    .gallery-nav.prev{right:8px}.gallery-nav.next{left:8px}
+    .drawer{width:100%;max-width:100vw}
     .foot-grid{grid-template-columns:1fr 1fr;gap:32px}.foot-bottom{flex-direction:column;gap:10px;text-align:center}
     .news-form{flex-direction:column}.news-form button{padding:15px}
+    .wa-float{width:52px;height:52px;bottom:18px;left:18px}
+    .toast{bottom:84px;font-size:12px;padding:13px 22px}
+  }
+  @media(max-width:480px){
+    .grid{grid-template-columns:1fr;gap:22px}
+    .card-img{aspect-ratio:4/5}
+    .section-head{margin-bottom:36px}
+    .hero h1{font-size:46px}
+    .filters{gap:6px}.filters button{padding:8px 16px;font-size:12px}
   }
 </style>
 </head>
@@ -200,7 +232,7 @@
     <a onclick="filterTo('couples')">זוגות</a>
     <a href="#about">הסיפור</a>
   </nav>
-  <div class="logo">SHUREL<small>DESIGN</small></div>
+  <div class="logo">SHIREL<small>DESIGN</small></div>
   <div class="icons">
     <button aria-label="עגלה" onclick="openCart()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -272,7 +304,7 @@
   <div class="editorial-text">
     <div class="kicker">הסיפור שלנו</div>
     <h2>עיצוב אישי, גזרה שמחמיאה לכל גוף</h2>
-    <p>SHUREL DESIGN נולד מתוך אהבה לים ולתחושת החופש שהוא נותן. כל פריט מעוצב בקפידה ונתפר באיכות גבוהה, עם דגש על גזרה שמחמיאה ומעצימה. מסטים זוגיים תואמים ועד ביקיני קלאסי — כאן תמצאי את הבגד ים שגורם לך להרגיש הכי את שיש.</p>
+    <p>SHIREL DESIGN נולד מתוך אהבה לים ולתחושת החופש שהוא נותן. כל פריט מעוצב בקפידה ונתפר באיכות גבוהה, עם דגש על גזרה שמחמיאה ומעצימה. מסטים זוגיים תואמים ועד ביקיני קלאסי — כאן תמצאי את הבגד ים שגורם לך להרגיש הכי את שיש.</p>
     <a onclick="filterTo('women')" class="link-underline" style="cursor:pointer">לצפייה בקולקציה
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
     </a>
@@ -280,7 +312,7 @@
 </section>
 
 <section class="news">
-  <h2>הצטרפי למשפחת SHUREL</h2>
+  <h2>הצטרפי למשפחת SHIREL</h2>
   <p>קבלי עדכונים על קולקציות חדשות, מבצעים והטבות בלעדיות.</p>
   <div class="news-form">
     <input type="email" placeholder="המייל שלך" id="newsInput">
@@ -291,7 +323,7 @@
 <footer>
   <div class="foot-grid">
     <div class="foot-brand">
-      <div class="logo">SHUREL<small>DESIGN</small></div>
+      <div class="logo">SHIREL<small>DESIGN</small></div>
       <p>בגדי ים בעיצוב אישי לנשים, גברים וזוגות. נוחות, גזרה מחמיאה וים של ביטחון עצמי.</p>
     </div>
     <div class="foot-col">
@@ -314,7 +346,7 @@
     </div>
   </div>
   <div class="foot-bottom">
-    <span>© 2026 SHUREL DESIGN. כל הזכויות שמורות.</span>
+    <span>© 2026 SHIREL DESIGN. כל הזכויות שמורות.</span>
     <span>תקנון · מדיניות פרטיות · הצהרת נגישות</span>
   </div>
 </footer>
@@ -335,7 +367,18 @@
 
 <div class="modal" id="modal">
   <div class="modal-card">
-    <div class="modal-img" id="modalImg"><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="modal-img" id="modalImg">
+      <div class="modal-img-inner" id="modalImgInner"></div>
+      <button class="modal-close" onclick="closeModal()" aria-label="סגירה">✕</button>
+      <button class="gallery-nav prev" id="galPrev" onclick="galPrev()" aria-label="הקודם">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <button class="gallery-nav next" id="galNext" onclick="galNext()" aria-label="הבא">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="gallery-dots" id="galDots"></div>
+      <div class="gallery-counter" id="galCounter"></div>
+    </div>
     <div class="modal-info" id="modalInfo"></div>
   </div>
 </div>
@@ -372,7 +415,11 @@ const products = [
 ];
 const sizes=["XS","S","M","L","XL"];
 let cart=[];
-let modalState={prod:null,size:"M"};
+let modalState={prod:null,size:"M",imgIndex:0,images:[]};
+
+function productImages(p){
+  return p.img===p.img2?[p.img]:[p.img,p.img2];
+}
 
 const grid=document.getElementById('grid');
 function renderProducts(filter="all"){
@@ -417,12 +464,33 @@ function filterTo(cat){
 
 function openModal(id){
   const p=products.find(x=>x.id===id);
-  modalState={prod:p,size:"M"};
-  document.getElementById('modalImg').style.backgroundImage=`url('images/${p.img}')`;
+  modalState={prod:p,size:"M",imgIndex:0,images:productImages(p)};
+  renderGallery();
   renderModal();
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow="hidden";
 }
+function renderGallery(){
+  const imgs=modalState.images;
+  document.getElementById('modalImgInner').style.backgroundImage=`url('images/${imgs[modalState.imgIndex]}')`;
+  const multi=imgs.length>1;
+  document.getElementById('galPrev').style.display=multi?'flex':'none';
+  document.getElementById('galNext').style.display=multi?'flex':'none';
+  document.getElementById('galCounter').style.display=multi?'block':'none';
+  document.getElementById('galCounter').textContent=`${modalState.imgIndex+1} / ${imgs.length}`;
+  const dots=document.getElementById('galDots');
+  if(multi){
+    dots.style.display='flex';
+    dots.innerHTML=imgs.map((_,i)=>`<button class="${i===modalState.imgIndex?'active':''}" onclick="galGo(${i})" aria-label="תמונה ${i+1}"></button>`).join("");
+  }else{dots.style.display='none';dots.innerHTML="";}
+}
+function galGo(i){
+  const n=modalState.images.length;
+  modalState.imgIndex=(i+n)%n;
+  renderGallery();
+}
+function galPrev(){galGo(modalState.imgIndex-1);}
+function galNext(){galGo(modalState.imgIndex+1);}
 function renderModal(){
   const p=modalState.prod;
   document.getElementById('modalInfo').innerHTML=`
@@ -437,6 +505,28 @@ function renderModal(){
 function setSize(s){modalState.size=s;renderModal();}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow="";}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('modal').classList.contains('open'))return;
+  if(e.key==='Escape')closeModal();
+  if(modalState.images.length>1){
+    if(e.key==='ArrowLeft')galNext();
+    if(e.key==='ArrowRight')galPrev();
+  }
+});
+(function(){
+  const el=document.getElementById('modalImg');
+  let sx=0,sy=0,active=false;
+  el.addEventListener('touchstart',e=>{const t=e.changedTouches[0];sx=t.clientX;sy=t.clientY;active=true;},{passive:true});
+  el.addEventListener('touchend',e=>{
+    if(!active||modalState.images.length<2)return;
+    active=false;
+    const t=e.changedTouches[0];
+    const dx=t.clientX-sx,dy=t.clientY-sy;
+    if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){
+      if(dx<0)galPrev(); else galNext();
+    }
+  },{passive:true});
+})();
 
 function addToCart(){
   const p=modalState.prod;
@@ -472,7 +562,7 @@ function closeCart(){document.getElementById('overlay').classList.remove('open')
 function checkout(){
   if(!cart.length){toast("הסל ריק");return;}
   const phone="972500000000"; // ← להחליף למספר וואטסאפ אמיתי (בלי 0 בהתחלה)
-  let msg="היי SHUREL DESIGN! 🤍 אשמח להזמין:%0A%0A";
+  let msg="היי SHIREL DESIGN! 🤍 אשמח להזמין:%0A%0A";
   cart.forEach(c=>{msg+=`• ${c.name} — מידה ${c.size} × ${c.qty} = ₪${c.price*c.qty}%0A`;});
   const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
   msg+=`%0Aסה״כ: ₪${total}%0A%0Aשם:%0Aכתובת למשלוח:`;
