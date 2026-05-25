@@ -171,7 +171,7 @@
   .modal.open .modal-card{transform:scale(1)}
   .modal-img{position:relative;min-height:540px;background-color:var(--sand);user-select:none;-webkit-user-select:none;touch-action:pan-y;overflow:hidden}
   .modal-img-blur{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(28px) brightness(.9);transform:scale(1.15);opacity:.55}
-  .modal-img-inner{position:absolute;inset:0;background-size:contain;background-position:center;background-repeat:no-repeat;transition:opacity .3s}
+  .modal-img-inner{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;transition:opacity .3s;display:block}
   .modal-close{position:absolute;top:16px;left:16px;z-index:6;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center;font-size:18px;border:none;cursor:pointer}
   .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;z-index:5;cursor:pointer;transition:background .25s,transform .25s;color:var(--ink);border:none}
   .gallery-nav:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
@@ -465,7 +465,7 @@
   <div class="modal-card">
     <div class="modal-img" id="modalImg">
       <div class="modal-img-blur" id="modalImgBlur"></div>
-      <div class="modal-img-inner" id="modalImgInner"></div>
+      <img class="modal-img-inner" id="modalImgInner" alt="" />
       <button class="modal-close" onclick="closeModal()" aria-label="סגירה">✕</button>
       <button class="gallery-nav prev" id="galPrev" onclick="galPrev()" aria-label="הקודם">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
@@ -593,9 +593,11 @@ function openModal(id){
 }
 function renderGallery(){
   const imgs=modalState.images;
-  const src=`url('images/${imgs[modalState.imgIndex]}')`;
-  document.getElementById('modalImgInner').style.backgroundImage=src;
-  document.getElementById('modalImgBlur').style.backgroundImage=src;
+  const file=imgs[modalState.imgIndex];
+  const innerImg=document.getElementById('modalImgInner');
+  innerImg.src=`images/${file}`;
+  innerImg.alt=modalState.prod?modalState.prod.name:"";
+  document.getElementById('modalImgBlur').style.backgroundImage=`url('images/${file}')`;
   const multi=imgs.length>1;
   document.getElementById('galPrev').style.display=multi?'flex':'none';
   document.getElementById('galNext').style.display=multi?'flex':'none';
