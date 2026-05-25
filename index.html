@@ -343,8 +343,8 @@
     <div class="foot-col">
       <h5>עקבו אחרינו</h5>
       <a href="#">Instagram</a>
-      <a href="https://wa.me/972500000000" target="_blank">WhatsApp</a>
-      <a href="https://wa.me/972500000000" target="_blank">יצירת קשר</a>
+      <a href="https://wa.me/972542240554" target="_blank">WhatsApp</a>
+      <a href="https://wa.me/972542240554" target="_blank">יצירת קשר</a>
     </div>
   </div>
   <div class="foot-bottom">
@@ -386,7 +386,7 @@
   </div>
 </div>
 
-<a class="wa-float" href="https://wa.me/972500000000" target="_blank" aria-label="וואטסאפ">
+<a class="wa-float" href="https://wa.me/972542240554" target="_blank" aria-label="וואטסאפ">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.2-3.7-.8-3.1-1.3-5.1-4.5-5.3-4.7-.1-.2-1.2-1.6-1.2-3.1S6.4 7 6.7 6.7c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3z"/></svg>
 </a>
 
@@ -410,7 +410,7 @@ const products = [
   {id:10, name:"מונוכרום", cat:"women", type:"ביקיני", price:289, old:null, tag:null, img:"monochrome.webp", img2:"monochrome.webp", desc:"ביקיני בפסים שחור-לבן גרפיים. נקי, חד וקלאסי — לא יוצא מהאופנה לעולם."},
   {id:11, name:"פרובאנס", cat:"women", type:"ביקיני", price:309, old:null, tag:"להיט", img:"provence.webp", img2:"provence.webp", desc:"ביקיני פרחוני עדין בגווני סגול וורוד. רומנטי, נשי ומלא חיים."},
   {id:18, name:"לבנדר", cat:"women", type:"ביקיני", price:299, old:null, tag:null, img:"provence-2.webp", img2:"provence-2.webp", desc:"ביקיני בגווני לבנדר עדינים עם פרינט פרחוני. רך, נשי ועם נגיעה רומנטית של פרובאנס."},
-  {id:19, name:"איביזה · סט זוגי", cat:"couples", type:"סט תואם", price:599, old:null, tag:"חדש", img:"ibiza.jpg", img2:"ibiza-2.jpg", images:["ibiza.jpg","ibiza-2.jpg","ibiza-3.jpg","santorini-2.webp"], desc:"סט תואם לזוג בהדפס פייזלי-מנדלה בגווני כחול בהיר, אדום ולבן. ביקיני קושר לאישה עם פרטי טורקיז, ומכנס שחייה תואם לגבר. מושלם לחופשה ים-תיכונית."},
+  {id:19, name:"איביזה · סט זוגי", cat:"couples", type:"סט תואם", price:599, old:null, tag:"חדש", img:"ibiza.jpg", img2:"ibiza-2.jpg", images:["ibiza.jpg","ibiza-2.jpg","ibiza-3.jpg"], desc:"סט תואם לזוג בהדפס פייזלי-מנדלה בגווני כחול בהיר, אדום ולבן. ביקיני קושר לאישה עם פרטי טורקיז, ומכנס שחייה תואם לגבר. מושלם לחופשה ים-תיכונית."},
   {id:12, name:"לימונצ׳לו", cat:"women", type:"ביקיני", price:279, old:null, tag:null, img:"limoncello.webp", img2:"limoncello.webp", desc:"ביקיני צהוב שמשי עם מרקם עדין. צבע שמח שמדגיש שיזוף ומכניס קיץ."},
   {id:13, name:"ראפלס", cat:"women", type:"ביקיני", price:299, old:null, tag:null, img:"ruffles.webp", img2:"ruffles.webp", desc:"ביקיני ורוד בהדפס עם פרטי מלמלה. נשי ומפנק עם נגיעה רומנטית."},
   {id:14, name:"בלאן", cat:"women", type:"ביקיני", price:289, old:null, tag:null, img:"blanc.webp", img2:"blanc.webp", desc:"ביקיני לבן קלאסי ונקי. תמידי, מינimalist ומחמיא במיוחד על עור שזוף."},
@@ -568,7 +568,7 @@ function closeCart(){document.getElementById('overlay').classList.remove('open')
 
 function checkout(){
   if(!cart.length){toast("הסל ריק");return;}
-  const phone="972500000000"; // ← להחליף למספר וואטסאפ אמיתי (בלי 0 בהתחלה)
+  const phone="972542240554"; // ← להחליף למספר וואטסאפ אמיתי (בלי 0 בהתחלה)
   let msg="היי SHIREL DESIGN! 🤍 אשמח להזמין:%0A%0A";
   cart.forEach(c=>{msg+=`• ${c.name} — מידה ${c.size} × ${c.qty} = ₪${c.price*c.qty}%0A`;});
   const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
