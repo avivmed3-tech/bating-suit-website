@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHUREL DESIGN · בגדי ים בעיצוב אישי</title>
+<meta name="description" content="SHUREL DESIGN — בגדי ים בעיצוב אישי לנשים, גברים וזוגות. גזרות מחמיאות, איכות גבוהה, סטים תואמים.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Heebo:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBFAF7; --ink:#1C1A17; --soft:#8C857B; --line:#E7E3DB;
+    --sand:#EFE9DF; --accent:#B0734A; --accent-deep:#8A5733; --white:#FFFFFF;
+    --shadow:0 20px 60px -25px rgba(28,26,23,.28);
+    --serif:'Cormorant Garamond',serif; --sans:'Heebo',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-weight:300;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+  ::selection{background:var(--accent);color:#fff}
+
+  header{position:fixed;top:0;right:0;left:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;transition:background .4s,padding .4s,box-shadow .4s}
+  header.scrolled{background:rgba(251,250,247,.92);backdrop-filter:blur(14px);padding:12px 32px;box-shadow:0 1px 0 var(--line)}
+  .logo{font-family:var(--serif);font-size:26px;font-weight:500;letter-spacing:.16em;color:var(--ink);transition:color .4s;white-space:nowrap}
+  .logo small{font-size:11px;letter-spacing:.4em;display:block;font-family:var(--sans);font-weight:300;opacity:.65;margin-top:-4px}
+  header:not(.scrolled) .logo,header:not(.scrolled) nav a,header:not(.scrolled) .icons button{color:#fff}
+  nav{display:flex;gap:34px;align-items:center}
+  nav a{font-size:13px;letter-spacing:.14em;font-weight:400;position:relative;padding:4px 0;transition:opacity .3s}
+  nav a::after{content:'';position:absolute;bottom:0;right:0;height:1px;width:0;background:currentColor;transition:width .35s}
+  nav a:hover::after{width:100%}
+  .icons{display:flex;gap:18px;align-items:center}
+  .icons button{display:flex;align-items:center;color:var(--ink);transition:color .4s;position:relative}
+  .cart-count{position:absolute;top:-8px;left:-10px;background:var(--accent);color:#fff;font-size:10px;font-weight:500;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--sans)}
+  .menu-toggle{display:none}
+
+  .hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:url('images/santorini.webp') center 20%/cover no-repeat;transform:scale(1.05);animation:slowzoom 14s ease-out forwards}
+  @keyframes slowzoom{to{transform:scale(1)}}
+  .hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,26,23,.35),rgba(28,26,23,.05) 35%,rgba(28,26,23,.55))}
+  .hero-content{position:relative;z-index:2;color:#fff;padding:0 48px 72px;max-width:760px}
+  .hero-eyebrow{font-size:13px;letter-spacing:.42em;font-weight:300;text-transform:uppercase;margin-bottom:22px;opacity:0;animation:fadeUp .9s .3s forwards}
+  .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(48px,8vw,104px);line-height:.96;letter-spacing:.01em;margin-bottom:28px}
+  .hero h1 span{display:block;overflow:hidden}
+  .hero h1 span i{display:block;font-style:normal;transform:translateY(110%);animation:reveal 1.1s cubic-bezier(.16,1,.3,1) forwards}
+  .hero h1 span:nth-child(2) i{animation-delay:.12s}
+  .hero h1 span:nth-child(3) i{animation-delay:.24s;font-style:italic;color:var(--sand)}
+  .hero-btn{display:inline-flex;align-items:center;gap:12px;background:#fff;color:var(--ink);padding:16px 38px;font-size:13px;letter-spacing:.22em;border-radius:40px;font-weight:400;opacity:0;animation:fadeUp .9s .7s forwards;transition:transform .35s,background .35s,color .35s}
+  .hero-btn:hover{background:var(--accent);color:#fff;transform:translateY(-3px)}
+  .hero-btn svg{transition:transform .35s}
+  .hero-btn:hover svg{transform:translateX(-6px)}
+  @keyframes reveal{to{transform:translateY(0)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+  .marquee{background:var(--ink);color:#fff;overflow:hidden;padding:11px 0;white-space:nowrap}
+  .marquee-track{display:inline-flex;animation:scroll 26s linear infinite}
+  .marquee-track span{font-size:12px;letter-spacing:.32em;padding:0 40px;font-weight:300;opacity:.85}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(50%)}}
+
+  .section{padding:96px 48px}
+  .section-head{text-align:center;margin-bottom:56px}
+  .section-head .kicker{font-size:12px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .section-head h2{font-family:var(--serif);font-weight:300;font-size:clamp(34px,5vw,58px);line-height:1.05}
+  .cats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1280px;margin:0 auto}
+  .cat{position:relative;height:520px;border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;cursor:pointer}
+  .cat-bg{position:absolute;inset:0;background-size:cover;background-position:center 20%;transition:transform 1s cubic-bezier(.16,1,.3,1)}
+  .cat:hover .cat-bg{transform:scale(1.06)}
+  .cat::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(28,26,23,.6))}
+  .cat-1 .cat-bg{background-image:url('images/maldives.webp')}
+  .cat-2 .cat-bg{background-image:url('images/riviera.webp')}
+  .cat-3 .cat-bg{background-image:url('images/santorini-2.webp')}
+  .cat-label{position:relative;z-index:2;color:#fff;padding:34px;width:100%}
+  .cat-label h3{font-family:var(--serif);font-size:34px;font-weight:400;margin-bottom:6px}
+  .cat-label span{font-size:12px;letter-spacing:.24em;opacity:.9;display:inline-flex;align-items:center;gap:8px}
+  .cat-label span svg{transition:transform .35s}
+  .cat:hover .cat-label span svg{transform:translateX(-6px)}
+
+  .filters{display:flex;justify-content:center;gap:8px;margin-bottom:48px;flex-wrap:wrap}
+  .filters button{padding:9px 22px;border-radius:30px;font-size:13px;letter-spacing:.08em;color:var(--soft);border:1px solid var(--line);transition:.3s}
+  .filters button.active,.filters button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px 18px;max-width:1280px;margin:0 auto}
+  .card{cursor:pointer;opacity:0;transform:translateY(20px)}
+  .card.in{opacity:1;transform:none;transition:opacity .7s,transform .7s}
+  .card-img{position:relative;aspect-ratio:3/4;border-radius:3px;overflow:hidden;margin-bottom:14px;background:var(--sand)}
+  .card-img .ph{position:absolute;inset:0;background-size:cover;background-position:center top;transition:transform .8s cubic-bezier(.16,1,.3,1),opacity .5s}
+  .card-img .ph.b{opacity:0}
+  .card:hover .ph.a{opacity:0}
+  .card:hover .ph.b{opacity:1}
+  .card:hover .card-img .ph{transform:scale(1.04)}
+  .tag{position:absolute;top:12px;right:12px;z-index:3;background:#fff;color:var(--ink);font-size:10px;letter-spacing:.14em;padding:5px 11px;border-radius:20px;font-weight:500}
+  .quick{position:absolute;bottom:0;right:0;left:0;z-index:3;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);padding:13px;text-align:center;font-size:12px;letter-spacing:.18em;transform:translateY(100%);transition:transform .4s;font-weight:500}
+  .card:hover .quick{transform:translateY(0)}
+  .card-info h4{font-family:var(--sans);font-weight:400;font-size:15px;margin-bottom:3px}
+  .card-info .price{font-size:14px;color:var(--ink);font-weight:400}
+  .card-info .price s{color:var(--soft);font-weight:300;margin-left:8px}
+
+  .editorial{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:0;background:var(--sand)}
+  .editorial-img{min-height:620px;background:url('images/provence.webp') center 25%/cover no-repeat}
+  .editorial-text{padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+  .editorial-text .kicker{font-size:12px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:18px}
+  .editorial-text h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,4vw,48px);line-height:1.1;margin-bottom:24px}
+  .editorial-text p{color:var(--soft);max-width:440px;margin-bottom:32px;font-size:15px}
+  .link-underline{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.18em;border-bottom:1px solid var(--ink);padding-bottom:5px;align-self:flex-start}
+
+  .news{text-align:center;padding:110px 48px;background:var(--ink);color:#fff}
+  .news h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,5vw,56px);margin-bottom:16px}
+  .news p{color:#b3aea4;margin-bottom:36px;font-size:15px}
+  .news-form{display:flex;max-width:440px;margin:0 auto;gap:10px}
+  .news-form input{flex:1;background:transparent;border:1px solid #45413b;color:#fff;padding:15px 20px;border-radius:40px;font-family:inherit;font-size:14px;outline:none}
+  .news-form input::placeholder{color:#7d786f}
+  .news-form button{background:#fff;color:var(--ink);padding:0 32px;border-radius:40px;font-size:13px;letter-spacing:.14em;transition:.3s}
+  .news-form button:hover{background:var(--accent);color:#fff}
+
+  footer{background:var(--bg);padding:72px 48px 36px}
+  .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1280px;margin:0 auto 50px}
+  .foot-brand .logo{color:var(--ink);font-size:30px}
+  .foot-brand p{color:var(--soft);font-size:14px;margin-top:16px;max-width:280px}
+  .foot-col h5{font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;color:var(--ink)}
+  .foot-col a{display:block;color:var(--soft);font-size:14px;margin-bottom:11px;transition:color .3s;cursor:pointer}
+  .foot-col a:hover{color:var(--accent)}
+  .foot-bottom{border-top:1px solid var(--line);padding-top:26px;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;color:var(--soft);letter-spacing:.04em}
+
+  .overlay{position:fixed;inset:0;background:rgba(28,26,23,.45);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:.4s;z-index:200}
+  .overlay.open{opacity:1;visibility:visible}
+  .drawer{position:fixed;top:0;left:0;height:100%;width:420px;max-width:90vw;background:var(--bg);z-index:201;transform:translateX(-100%);transition:transform .5s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column}
+  .drawer.open{transform:translateX(0)}
+  .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:26px 28px;border-bottom:1px solid var(--line)}
+  .drawer-head h3{font-family:var(--serif);font-size:24px;font-weight:400}
+  .drawer-head button{font-size:22px;color:var(--soft)}
+  .drawer-body{flex:1;overflow-y:auto;padding:14px 28px}
+  .cart-empty{text-align:center;color:var(--soft);padding:80px 0;font-size:14px}
+  .cart-item{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
+  .cart-item .ci-img{width:72px;height:92px;border-radius:3px;flex-shrink:0;background-size:cover;background-position:center}
+  .cart-item .ci-info{flex:1}
+  .cart-item .ci-info h4{font-size:14px;font-weight:400;margin-bottom:3px}
+  .cart-item .ci-info .ci-meta{font-size:12px;color:var(--soft);margin-bottom:10px}
+  .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .qty button{width:28px;height:28px;color:var(--ink);font-size:15px}
+  .qty span{width:30px;text-align:center;font-size:13px}
+  .ci-price{font-size:14px;font-weight:400;text-align:left}
+  .ci-remove{font-size:11px;color:var(--soft);text-decoration:underline;margin-top:6px;cursor:pointer}
+  .drawer-foot{padding:24px 28px;border-top:1px solid var(--line)}
+  .drawer-total{display:flex;justify-content:space-between;margin-bottom:18px;font-size:16px}
+  .drawer-total strong{font-weight:500}
+  .checkout-btn{width:100%;background:#25D366;color:#fff;padding:17px;border-radius:40px;font-size:14px;letter-spacing:.1em;font-weight:500;display:flex;align-items:center;justify-content:center;gap:10px;transition:.3s}
+  .checkout-btn:hover{background:#1da851}
+  .drawer-note{text-align:center;font-size:11px;color:var(--soft);margin-top:12px}
+
+  .modal{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:.4s}
+  .modal.open{opacity:1;visibility:visible}
+  .modal-card{background:var(--bg);max-width:920px;width:100%;max-height:88vh;border-radius:6px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;transform:scale(.96);transition:transform .4s;box-shadow:var(--shadow)}
+  .modal.open .modal-card{transform:scale(1)}
+  .modal-img{position:relative;min-height:480px;background-size:cover;background-position:center top}
+  .modal-close{position:absolute;top:16px;left:16px;z-index:5;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:18px}
+  .modal-info{padding:48px 44px;overflow-y:auto}
+  .modal-info .kicker{font-size:11px;letter-spacing:.3em;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+  .modal-info h2{font-family:var(--serif);font-size:38px;font-weight:400;line-height:1.05;margin-bottom:14px}
+  .modal-info .m-price{font-size:22px;margin-bottom:22px}
+  .modal-info .m-price s{color:var(--soft);font-size:17px;margin-left:10px}
+  .modal-info p.desc{color:var(--soft);font-size:14px;margin-bottom:26px;line-height:1.7}
+  .opt-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:11px;color:var(--ink)}
+  .sizes{display:flex;gap:9px;margin-bottom:30px}
+  .sizes button{width:46px;height:46px;border:1px solid var(--line);border-radius:50%;font-size:13px;transition:.25s;color:var(--ink)}
+  .sizes button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .add-btn{width:100%;background:var(--ink);color:#fff;padding:17px;border-radius:40px;font-size:13px;letter-spacing:.16em;transition:.3s;font-weight:400}
+  .add-btn:hover{background:var(--accent)}
+
+  .toast{position:fixed;bottom:30px;right:50%;transform:translateX(50%) translateY(120px);background:var(--ink);color:#fff;padding:15px 28px;border-radius:40px;font-size:13px;letter-spacing:.08em;z-index:400;transition:transform .5s cubic-bezier(.16,1,.3,1);display:flex;align-items:center;gap:10px}
+  .toast.show{transform:translateX(50%) translateY(0)}
+
+  .wa-float{position:fixed;bottom:24px;left:24px;z-index:150;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .3s}
+  .wa-float:hover{transform:scale(1.08)}
+
+  @media(max-width:900px){
+    header{padding:14px 20px}header.scrolled{padding:10px 20px}
+    nav{display:none}.menu-toggle{display:flex;color:var(--ink)}
+    header:not(.scrolled) .menu-toggle{color:#fff}
+    .section{padding:64px 20px}.hero-content{padding:0 24px 56px}
+    .cats{grid-template-columns:1fr;gap:14px}.cat{height:380px}
+    .grid{grid-template-columns:repeat(2,1fr);gap:28px 14px}
+    .editorial{grid-template-columns:1fr}.editorial-img{min-height:360px}.editorial-text{padding:48px 24px}
+    .modal-card{grid-template-columns:1fr;max-height:92vh}.modal-img{min-height:340px}.modal-info{padding:32px 26px}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:32px}.foot-bottom{flex-direction:column;gap:10px;text-align:center}
+    .news-form{flex-direction:column}.news-form button{padding:15px}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <button class="menu-toggle" aria-label="תפריט" onclick="document.getElementById('women').scrollIntoView({behavior:'smooth'})">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+  </button>
+  <nav>
+    <a onclick="filterTo('women')">נשים</a>
+    <a onclick="filterTo('men')">גברים</a>
+    <a onclick="filterTo('couples')">זוגות</a>
+    <a href="#about">הסיפור</a>
+  </nav>
+  <div class="logo">SHUREL<small>DESIGN</small></div>
+  <div class="icons">
+    <button aria-label="עגלה" onclick="openCart()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      <span class="cart-count" id="cartCount" style="display:none">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">קולקציית קיץ 2026</div>
+    <h1>
+      <span><i>הים</i></span>
+      <span><i>הוא הבית.</i></span>
+      <span><i>תתלבשי בהתאם.</i></span>
+    </h1>
+    <a onclick="filterTo('women')" class="hero-btn" style="cursor:pointer">
+      גלי את הקולקציה
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>משלוח חינם מעל ₪350</span><span>·</span><span>עיצוב ותפירה בישראל</span><span>·</span><span>סטים תואמים לזוגות</span><span>·</span><span>החלפה והחזרה תוך 30 יום</span><span>·</span>
+    <span>משלוח חינם מעל ₪350</span><span>·</span><span>עיצוב ותפירה בישראל</span><span>·</span><span>סטים תואמים לזוגות</span><span>·</span><span>החלפה והחזרה תוך 30 יום</span><span>·</span>
+  </div>
+</div>
+
+<section class="section" id="couples">
+  <div class="section-head">
+    <div class="kicker">הקולקציות</div>
+    <h2>מצאי את הסגנון שלך</h2>
+  </div>
+  <div class="cats">
+    <div class="cat cat-1" onclick="filterTo('women')">
+      <div class="cat-bg"></div>
+      <div class="cat-label"><h3>נשים</h3><span>לצפייה בקולקציה <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span></div>
+    </div>
+    <div class="cat cat-2" onclick="filterTo('men')">
+      <div class="cat-bg"></div>
+      <div class="cat-label"><h3>גברים</h3><span>לצפייה בקולקציה <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span></div>
+    </div>
+    <div class="cat cat-3" onclick="filterTo('couples')">
+      <div class="cat-bg"></div>
+      <div class="cat-label"><h3>זוגות</h3><span>סטים תואמים <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="women" style="padding-top:0">
+  <div class="section-head">
+    <div class="kicker">הקטלוג</div>
+    <h2>הקולקציה המלאה</h2>
+  </div>
+  <div class="filters" id="filters">
+    <button class="active" data-f="all">הכל</button>
+    <button data-f="women">נשים</button>
+    <button data-f="men">גברים</button>
+    <button data-f="couples">זוגות</button>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="editorial" id="about">
+  <div class="editorial-img"></div>
+  <div class="editorial-text">
+    <div class="kicker">הסיפור שלנו</div>
+    <h2>עיצוב אישי, גזרה שמחמיאה לכל גוף</h2>
+    <p>SHUREL DESIGN נולד מתוך אהבה לים ולתחושת החופש שהוא נותן. כל פריט מעוצב בקפידה ונתפר באיכות גבוהה, עם דגש על גזרה שמחמיאה ומעצימה. מסטים זוגיים תואמים ועד ביקיני קלאסי — כאן תמצאי את הבגד ים שגורם לך להרגיש הכי את שיש.</p>
+    <a onclick="filterTo('women')" class="link-underline" style="cursor:pointer">לצפייה בקולקציה
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="news">
+  <h2>הצטרפי למשפחת SHUREL</h2>
+  <p>קבלי עדכונים על קולקציות חדשות, מבצעים והטבות בלעדיות.</p>
+  <div class="news-form">
+    <input type="email" placeholder="המייל שלך" id="newsInput">
+    <button onclick="joinNews()">הצטרפות</button>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="logo">SHUREL<small>DESIGN</small></div>
+      <p>בגדי ים בעיצוב אישי לנשים, גברים וזוגות. נוחות, גזרה מחמיאה וים של ביטחון עצמי.</p>
+    </div>
+    <div class="foot-col">
+      <h5>חנות</h5>
+      <a onclick="filterTo('women')">בגדי ים נשים</a>
+      <a onclick="filterTo('men')">בגדי ים גברים</a>
+      <a onclick="filterTo('couples')">סטים זוגיים</a>
+    </div>
+    <div class="foot-col">
+      <h5>מידע</h5>
+      <a href="#about">אודות</a>
+      <a onclick="toast('מדריך מידות בקרוב')">מדריך מידות</a>
+      <a onclick="toast('פרטי משלוח בקרוב')">משלוחים והחזרות</a>
+    </div>
+    <div class="foot-col">
+      <h5>עקבו אחרינו</h5>
+      <a href="#">Instagram</a>
+      <a href="https://wa.me/972500000000" target="_blank">WhatsApp</a>
+      <a href="https://wa.me/972500000000" target="_blank">יצירת קשר</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 SHUREL DESIGN. כל הזכויות שמורות.</span>
+    <span>תקנון · מדיניות פרטיות · הצהרת נגישות</span>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><h3>סל הקניות</h3><button onclick="closeCart()">✕</button></div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <div class="drawer-total"><span>סה״כ</span><strong id="cartTotal">₪0</strong></div>
+    <button class="checkout-btn" onclick="checkout()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.2-3.7-.8-3.1-1.3-5.1-4.5-5.3-4.7-.1-.2-1.2-1.6-1.2-3.1S6.4 7 6.7 6.7c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3z"/></svg>
+      להזמנה דרך וואטסאפ
+    </button>
+    <div class="drawer-note">התשלום והתיאום מתבצעים ישירות בוואטסאפ 🤍</div>
+  </div>
+</aside>
+
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <div class="modal-img" id="modalImg"><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="modal-info" id="modalInfo"></div>
+  </div>
+</div>
+
+<a class="wa-float" href="https://wa.me/972500000000" target="_blank" aria-label="וואטסאפ">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.2-3.7-.8-3.1-1.3-5.1-4.5-5.3-4.7-.1-.2-1.2-1.6-1.2-3.1S6.4 7 6.7 6.7c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3z"/></svg>
+</a>
+
+<div class="toast" id="toast">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+  <span id="toastMsg">נוסף לסל</span>
+</div>
+
+<script>
+// ===== DATA — 17 דגמים אמיתיים =====
+const products = [
+  {id:1, name:"מלדיביים", cat:"women", type:"ביקיני", price:289, old:null, tag:"חדש", img:"maldives.webp", img2:"maldives.webp", desc:"ביקיני משולש בגוון ורוד פוקסיה חי, עם קשירות צד מתכווננות. גזרה צעירה ומחמיאה שמתאימה לכל מבנה גוף."},
+  {id:2, name:"סרנגטי", cat:"women", type:"ביקיני", price:299, old:null, tag:"להיט", img:"serengeti.webp", img2:"serengeti-2.webp", desc:"ביקיני בהדפס מנומר קלאסי עם נגיעות שחורות. גזרת חוטיני מאחור ותמיכה מלאה מלפנים — נועז ואלגנטי."},
+  {id:3, name:"פורטו פינו", cat:"women", type:"ביקיני", price:309, old:null, tag:null, img:"portofino.webp", img2:"portofino-2.webp", desc:"ביקיני בפסים כחול-לבן ימיים עם קשירות. מראה נקי וריביירה איטלקית אמיתית."},
+  {id:4, name:"קלהארי", cat:"women", type:"ביקיני", price:299, old:null, tag:null, img:"kalahari.webp", img2:"kalahari-2.webp", desc:"ביקיני בהדפס חיה עדין בגווני בז' וחום. גזרה גבוהה שמאריכה את הרגליים."},
+  {id:5, name:"סקרלט", cat:"women", type:"ביקיני", price:279, old:null, tag:null, img:"scarlet.webp", img2:"scarlet.webp", desc:"ביקיני אדום לוהט עם מסגרת לבנה. צבע שלא מתפשר וגזרה שמושכת תשומת לב."},
+  {id:6, name:"קקאו", cat:"women", type:"ביקיני", price:289, old:null, tag:null, img:"cacao.webp", img2:"cacao.webp", desc:"ביקיני בגוון חום שוקולד מבריק עם פס מנומר עדין. חמים, מחמיא ונראה מהמם על שיזוף."},
+  {id:7, name:"ביץ׳ קלאב", cat:"women", type:"ביקיני", price:279, old:319, tag:"מבצע", img:"beachclub.webp", img2:"beachclub.webp", desc:"ביקיני בטאי-דאי ירקרק רענן עם קשירות צד. מראה קיצי ובוהמייני."},
+  {id:8, name:"מיקונוס", cat:"women", type:"ביקיני", price:299, old:null, tag:null, img:"mykonos.webp", img2:"mykonos.webp", desc:"ביקיני בהדפס כחול ים יווני. גזרה קלאסית עם נוכחות, מושלם ליום על החוף."},
+  {id:9, name:"סנט טרופה", cat:"women", type:"סט חצאית", price:339, old:null, tag:"חדש", img:"sttropez.webp", img2:"sttropez-2.webp", desc:"סט ביקיני עם חצאית מיני תואמת בגווני כסף ופסים. אלגנטי במיוחד למעבר מהחוף לקוקטייל."},
+  {id:10, name:"מונוכרום", cat:"women", type:"ביקיני", price:289, old:null, tag:null, img:"monochrome.webp", img2:"monochrome.webp", desc:"ביקיני בפסים שחור-לבן גרפיים. נקי, חד וקלאסי — לא יוצא מהאופנה לעולם."},
+  {id:11, name:"פרובאנס", cat:"women", type:"ביקיני", price:309, old:null, tag:"להיט", img:"provence.webp", img2:"provence-2.webp", desc:"ביקיני פרחוני עדין בגווני סגול וורוד. רומנטי, נשי ומלא חיים."},
+  {id:12, name:"לימונצ׳לו", cat:"women", type:"ביקיני", price:279, old:null, tag:null, img:"limoncello.webp", img2:"limoncello.webp", desc:"ביקיני צהוב שמשי עם מרקם עדין. צבע שמח שמדגיש שיזוף ומכניס קיץ."},
+  {id:13, name:"ראפלס", cat:"women", type:"ביקיני", price:299, old:null, tag:null, img:"ruffles.webp", img2:"ruffles.webp", desc:"ביקיני ורוד בהדפס עם פרטי מלמלה. נשי ומפנק עם נגיעה רומנטית."},
+  {id:14, name:"בלאן", cat:"women", type:"ביקיני", price:289, old:null, tag:null, img:"blanc.webp", img2:"blanc.webp", desc:"ביקיני לבן קלאסי ונקי. תמידי, מינimalist ומחמיא במיוחד על עור שזוף."},
+  {id:15, name:"דיון", cat:"women", type:"ביקיני", price:299, old:null, tag:"חדש", img:"dione.webp", img2:"dione.webp", desc:"ביקיני במשבצות חום-קרם עדינות. ריטרו, מתוחכם ומחמיא לגזרה."},
+  {id:16, name:"סנטוריני · סט זוגי", cat:"couples", type:"סט תואם", price:599, old:659, tag:"זוגי", img:"santorini.webp", img2:"santorini-2.webp", desc:"סט תואם לזוג — ביקיני לאישה ומכנס שחייה לגבר בהדפס פרחוני כחול תואם. כי החופשה הכי יפה היא ביחד."},
+  {id:17, name:"ריביירה", cat:"men", type:"מכנס שחייה", price:249, old:null, tag:null, img:"riviera.webp", img2:"riviera.webp", desc:"מכנס שחייה בהדפס משבצות עדין, גזרה קלאסית עם שרוך מתכוונן וייבוש מהיר. נוחות לכל היום."},
+];
+const sizes=["XS","S","M","L","XL"];
+let cart=[];
+let modalState={prod:null,size:"M"};
+
+const grid=document.getElementById('grid');
+function renderProducts(filter="all"){
+  grid.innerHTML="";
+  const list=filter==="all"?products:products.filter(p=>p.cat===filter);
+  list.forEach((p,i)=>{
+    const card=document.createElement('div');
+    card.className="card";
+    card.style.transitionDelay=(i*0.04)+"s";
+    card.innerHTML=`
+      <div class="card-img">
+        ${p.tag?`<span class="tag">${p.tag}</span>`:""}
+        <div class="ph a" style="background-image:url('images/${p.img}')"></div>
+        <div class="ph b" style="background-image:url('images/${p.img2}')"></div>
+        <div class="quick">צפייה מהירה</div>
+      </div>
+      <div class="card-info">
+        <h4>${p.name}</h4>
+        <div class="price">₪${p.price}${p.old?`<s>₪${p.old}</s>`:""}</div>
+      </div>`;
+    card.onclick=()=>openModal(p.id);
+    grid.appendChild(card);
+  });
+  requestAnimationFrame(()=>document.querySelectorAll('.card').forEach(c=>observer.observe(c)));
+}
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');observer.unobserve(e.target);}});
+},{threshold:.12});
+
+document.getElementById('filters').addEventListener('click',e=>{
+  if(e.target.tagName==="BUTTON"){
+    document.querySelectorAll('#filters button').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    renderProducts(e.target.dataset.f);
+  }
+});
+function filterTo(cat){
+  document.querySelectorAll('#filters button').forEach(b=>b.classList.toggle('active',b.dataset.f===cat));
+  renderProducts(cat);
+  document.getElementById('women').scrollIntoView({behavior:'smooth'});
+}
+
+function openModal(id){
+  const p=products.find(x=>x.id===id);
+  modalState={prod:p,size:"M"};
+  document.getElementById('modalImg').style.backgroundImage=`url('images/${p.img}')`;
+  renderModal();
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow="hidden";
+}
+function renderModal(){
+  const p=modalState.prod;
+  document.getElementById('modalInfo').innerHTML=`
+    <div class="kicker">${p.cat==='women'?'נשים':p.cat==='men'?'גברים':'זוגות'} · ${p.type}</div>
+    <h2>${p.name}</h2>
+    <div class="m-price">₪${p.price}${p.old?`<s>₪${p.old}</s>`:""}</div>
+    <p class="desc">${p.desc}</p>
+    <div class="opt-label">מידה</div>
+    <div class="sizes">${sizes.map(s=>`<button class="${s===modalState.size?'active':''}" onclick="setSize('${s}')">${s}</button>`).join("")}</div>
+    <button class="add-btn" onclick="addToCart()">הוספה לסל · ₪${p.price}</button>`;
+}
+function setSize(s){modalState.size=s;renderModal();}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow="";}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
+
+function addToCart(){
+  const p=modalState.prod;
+  const key=p.id+"-"+modalState.size;
+  const ex=cart.find(c=>c.key===key);
+  if(ex)ex.qty++; else cart.push({key,name:p.name,price:p.price,size:modalState.size,img:p.img,qty:1});
+  updateCart();closeModal();toast("נוסף לסל בהצלחה");
+}
+function updateCart(){
+  const body=document.getElementById('cartBody');
+  const count=cart.reduce((s,c)=>s+c.qty,0);
+  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  const cc=document.getElementById('cartCount');
+  cc.textContent=count;cc.style.display=count?"flex":"none";
+  document.getElementById('cartTotal').textContent="₪"+total;
+  if(!cart.length){body.innerHTML='<div class="cart-empty">הסל ריק כרגע 🤍<br>בואי נמלא אותו בים של סגנון.</div>';return;}
+  body.innerHTML=cart.map(c=>`
+    <div class="cart-item">
+      <div class="ci-img" style="background-image:url('images/${c.img}')"></div>
+      <div class="ci-info">
+        <h4>${c.name}</h4>
+        <div class="ci-meta">מידה ${c.size}</div>
+        <div class="qty"><button onclick="changeQty('${c.key}',1)">+</button><span>${c.qty}</span><button onclick="changeQty('${c.key}',-1)">−</button></div>
+      </div>
+      <div><div class="ci-price">₪${c.price*c.qty}</div><div class="ci-remove" onclick="removeItem('${c.key}')">הסרה</div></div>
+    </div>`).join("");
+}
+function changeQty(key,d){const it=cart.find(c=>c.key===key);it.qty+=d;if(it.qty<=0)cart=cart.filter(c=>c.key!==key);updateCart();}
+function removeItem(key){cart=cart.filter(c=>c.key!==key);updateCart();}
+function openCart(){document.getElementById('overlay').classList.add('open');document.getElementById('drawer').classList.add('open');document.body.style.overflow="hidden";}
+function closeCart(){document.getElementById('overlay').classList.remove('open');document.getElementById('drawer').classList.remove('open');document.body.style.overflow="";}
+
+function checkout(){
+  if(!cart.length){toast("הסל ריק");return;}
+  const phone="972500000000"; // ← להחליף למספר וואטסאפ אמיתי (בלי 0 בהתחלה)
+  let msg="היי SHUREL DESIGN! 🤍 אשמח להזמין:%0A%0A";
+  cart.forEach(c=>{msg+=`• ${c.name} — מידה ${c.size} × ${c.qty} = ₪${c.price*c.qty}%0A`;});
+  const total=cart.reduce((s,c)=>s+c.price*c.qty,0);
+  msg+=`%0Aסה״כ: ₪${total}%0A%0Aשם:%0Aכתובת למשלוח:`;
+  window.open(`https://wa.me/${phone}?text=${msg}`,'_blank');
+}
+function toast(m){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200);}
+function joinNews(){const i=document.getElementById('newsInput');if(i.value.includes('@')){toast("תודה שהצטרפת! 🤍");i.value="";}else{toast("נא להזין מייל תקין");}}
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>80));
+renderProducts();updateCart();
+</script>
+</body>
+</html>
