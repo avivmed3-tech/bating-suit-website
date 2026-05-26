@@ -74,7 +74,7 @@
   .cat:hover .cat-bg{transform:scale(1.06)}
   .cat::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(28,26,23,.6))}
   .cat-1 .cat-bg{background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/תכלת%20-%20Light%20Blue/IMG_8563.jpeg')}
-  .cat-2 .cat-bg{background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/גברים/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8402.jpeg')}
+  .cat-2 .cat-bg{background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/גברים/פרחוני%20סגול%20-%20Lilac%20Floral%20Set/IMG_8409.jpeg')}
   .cat-3 .cat-bg{background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/זוגי/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8364.jpeg')}
   .cat-label{position:relative;z-index:2;color:#fff;padding:34px;width:100%}
   .cat-label h3{font-family:var(--serif);font-size:34px;font-weight:400;margin-bottom:6px}
@@ -102,7 +102,9 @@
   .card-info .price s{color:var(--soft);font-weight:300;margin-left:8px}
 
   .editorial{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:0;background:var(--sand)}
-  .editorial-img{min-height:620px;background:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/לבן%20רקום%20-%20White%20Crochet/IMG_8634.jpeg') center 20%/cover no-repeat}
+  .editorial-img{min-height:620px;background:#1c1a17;position:relative;overflow:hidden}
+  .editorial-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+  .editorial-video.is-active{opacity:1}
   .editorial-text{padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
   .editorial-text .kicker{font-size:12px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:18px}
   .editorial-text h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,4vw,48px);line-height:1.1;margin-bottom:24px}
@@ -387,8 +389,26 @@
       <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20שלם%20-%20Pink%20Onepiece/IMG_8647.jpeg')">
         <span class="ci-label">בגד ים שלם</span>
       </div>
-      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8374.jpeg')">
+      <div class="ci ci-tall" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8374.jpeg')">
         <span class="ci-label">פרחוני כחול</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חום%20-%20Brown/IMG_8210.jpeg')">
+        <span class="ci-label">חום קלאסי</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/פסים%20שחור-לבן%20-%20BW%20Stripes%20Set/IMG_8450.jpeg')">
+        <span class="ci-label">פסים שחור-לבן</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20מנוקד%20-%20Pink%20Dot/IMG_8625.jpeg')">
+        <span class="ci-label">ורוד מנוקד</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/משובץ%20כחול%20-%20Blue%20Gingham/IMG_8709.jpeg')">
+        <span class="ci-label">משובץ כחול</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/פסים%20כחול-לבן%20-%20Blue%20Stripes/IMG_8089.jpeg')">
+        <span class="ci-label">פסים כחול-לבן</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנוקד%20אפור-שחור%20-%20Black%20Dot%20Set/IMG_8520.jpeg')">
+        <span class="ci-label">מנוקד שחור-אפור</span>
       </div>
     </div>
     <div class="collage-cta">
@@ -401,7 +421,15 @@
 </section>
 
 <section class="editorial" id="about">
-  <div class="editorial-img"></div>
+  <div class="editorial-img">
+    <video class="editorial-video is-active" id="storyVid1" muted playsinline preload="auto" autoplay>
+      <source src="אתר_שיראל_ממוין_קל/אתר%20שיראל/וידאו%20-%20Videos/IMG_7600.mp4" type="video/mp4">
+    </video>
+    <video class="editorial-video" id="storyVid2" muted playsinline preload="auto">
+      <source src="אתר_שיראל_ממוין_קל/אתר%20שיראל/וידאו%20-%20Videos/IMG_7598.mov" type="video/quicktime">
+      <source src="אתר_שיראל_ממוין_קל/אתר%20שיראל/וידאו%20-%20Videos/IMG_7598.mov" type="video/mp4">
+    </video>
+  </div>
   <div class="editorial-text">
     <div class="kicker">The story by La Shirel</div>
     <h2>עיצוב אישי, גזרה שמחמיאה לכל גוף</h2>
@@ -1232,6 +1260,21 @@ document.getElementById('legalModal').addEventListener('click',e=>{if(e.target.i
 document.addEventListener('keydown',e=>{
   if(e.key==='Escape'&&document.getElementById('legalModal').classList.contains('open'))closeLegal();
 });
+
+// ===== Story videos loop =====
+(function(){
+  var v1=document.getElementById('storyVid1'),v2=document.getElementById('storyVid2');
+  if(!v1||!v2)return;
+  function swap(from,to){
+    from.classList.remove('is-active');
+    to.currentTime=0;
+    to.classList.add('is-active');
+    var p=to.play();if(p&&p.catch)p.catch(function(){});
+  }
+  v1.addEventListener('ended',function(){swap(v1,v2);});
+  v2.addEventListener('ended',function(){swap(v2,v1);});
+  var p=v1.play();if(p&&p.catch)p.catch(function(){});
+})();
 
 // ===== Cookie consent =====
 function closeCookie(){
