@@ -74,7 +74,7 @@
   .cat:hover .cat-bg{transform:scale(1.06)}
   .cat::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(28,26,23,.6))}
   .cat-1 .cat-bg{background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/תכלת%20-%20Light%20Blue/IMG_8563.jpeg')}
-  .cat-2 .cat-bg{background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/גברים/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8400.jpeg')}
+  .cat-2 .cat-bg{background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/גברים/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8402.jpeg')}
   .cat-3 .cat-bg{background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/זוגי/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8364.jpeg')}
   .cat-label{position:relative;z-index:2;color:#fff;padding:34px;width:100%}
   .cat-label h3{font-family:var(--serif);font-size:34px;font-weight:400;margin-bottom:6px}
@@ -102,12 +102,26 @@
   .card-info .price s{color:var(--soft);font-weight:300;margin-left:8px}
 
   .editorial{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;gap:0;background:var(--sand)}
-  .editorial-img{min-height:620px;background:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/גברים/פרחוני%20סגול%20-%20Lilac%20Floral%20Set/IMG_8409.jpeg') center 25%/cover no-repeat}
+  .editorial-img{min-height:620px;background:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/לבן%20רקום%20-%20White%20Crochet/IMG_8634.jpeg') center 20%/cover no-repeat}
   .editorial-text{padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
   .editorial-text .kicker{font-size:12px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:18px}
   .editorial-text h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,4vw,48px);line-height:1.1;margin-bottom:24px}
   .editorial-text p{color:var(--soft);max-width:440px;margin-bottom:32px;font-size:15px}
   .link-underline{display:inline-flex;align-items:center;gap:10px;font-size:13px;letter-spacing:.18em;border-bottom:1px solid var(--ink);padding-bottom:5px;align-self:flex-start}
+
+  #customCollage{padding:0 48px 64px}
+  .collage-intro{text-align:center;margin-bottom:44px}
+  .collage-intro .kicker{font-size:12px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
+  .collage-intro h2{font-family:var(--serif);font-weight:300;font-size:clamp(26px,3.5vw,42px);line-height:1.15;margin-bottom:12px}
+  .collage-intro p{color:var(--soft);font-size:15px;max-width:480px;margin:0 auto}
+  .collage-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:300px;gap:10px;max-width:1100px;margin:0 auto 48px}
+  .ci{background-size:cover;background-position:center top;border-radius:4px;overflow:hidden;position:relative;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+  .ci:hover{transform:scale(1.02)}
+  .ci.ci-tall{grid-row:span 2}
+  .ci-label{position:absolute;bottom:14px;right:14px;background:rgba(28,26,23,.55);color:#fff;font-size:11px;letter-spacing:.16em;padding:6px 14px;border-radius:20px;backdrop-filter:blur(6px)}
+  .collage-cta{text-align:center}
+  @media(max-width:900px){#customCollage{padding:0 24px 48px}.collage-grid{grid-auto-rows:240px}}
+  @media(max-width:600px){.collage-grid{grid-template-columns:1fr 1fr;grid-auto-rows:190px}.ci.ci-tall{grid-row:span 1}}
 
   .news{text-align:center;padding:110px 48px;background:var(--ink);color:#fff}
   .news h2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,5vw,56px);margin-bottom:16px}
@@ -354,6 +368,36 @@
     <button data-f="custom">התאמה אישית</button>
   </div>
   <div class="grid" id="grid"></div>
+  <div id="customCollage" style="display:none">
+    <div class="collage-intro">
+      <div class="kicker">La Shirel · עיצוב אישי</div>
+      <h2>בגדי ים שנתפרו רק בשבילך</h2>
+      <p>בחרי צבע, גזרה ומידה — ואנחנו נבנה איתך את בגד הים המושלם. כל פריט נתפר בקפידה לפי הבחירה שלך.</p>
+    </div>
+    <div class="collage-grid">
+      <div class="ci ci-tall" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/אדום%20-%20Red/IMG_8178.jpeg')">
+        <span class="ci-label">ביקיני קלאסי</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנומר%20-%20Leopard/IMG_7999.jpeg')">
+        <span class="ci-label">הדפס מנומר</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/לבן%20רקום%20-%20White%20Crochet/IMG_8634.jpeg')">
+        <span class="ci-label">לבן רקום</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20שלם%20-%20Pink%20Onepiece/IMG_8647.jpeg')">
+        <span class="ci-label">בגד ים שלם</span>
+      </div>
+      <div class="ci" style="background-image:url('אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8374.jpeg')">
+        <span class="ci-label">פרחוני כחול</span>
+      </div>
+    </div>
+    <div class="collage-cta">
+      <a href="https://wa.me/972544477734" target="_blank" rel="noopener noreferrer" class="news-cta">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.2-1.4A10 10 0 1 0 12 2zm5.8 14.3c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.2-3.7-.8-3.1-1.3-5.1-4.5-5.3-4.7-.1-.2-1.2-1.6-1.2-3.1S6.4 7 6.7 6.7c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4 0 .1 0 .7-.3 1.3z"/></svg>
+        צרי קשר לעיצוב אישי
+      </a>
+    </div>
+  </div>
 </section>
 
 <section class="editorial" id="about">
@@ -873,6 +917,14 @@ function productImages(p){
 
 const grid=document.getElementById('grid');
 function renderProducts(filter="all"){
+  const collage=document.getElementById('customCollage');
+  if(filter==='custom'){
+    grid.style.display='none';
+    if(collage)collage.style.display='block';
+    return;
+  }
+  grid.style.display='';
+  if(collage)collage.style.display='none';
   grid.innerHTML="";
   const list=filter==="all"?products:products.filter(p=>p.cat===filter);
   list.forEach((p,i)=>{
