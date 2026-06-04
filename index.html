@@ -207,9 +207,13 @@
   .modal-info .m-price s{color:var(--soft);font-size:17px;margin-left:10px}
   .modal-info p.desc{color:var(--soft);font-size:14px;margin-bottom:26px;line-height:1.7}
   .opt-label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:11px;color:var(--ink)}
-  .sizes{display:flex;gap:9px;margin-bottom:30px}
-  .sizes button{width:46px;height:46px;border:1px solid var(--line);border-radius:50%;font-size:13px;transition:.25s;color:var(--ink)}
+  .opt-group{margin-bottom:20px}
+  .sizes{display:flex;flex-wrap:wrap;gap:9px}
+  .sizes button{min-width:46px;height:46px;padding:0 6px;border:1px solid var(--line);border-radius:50%;font-size:13px;transition:.25s;color:var(--ink)}
   .sizes button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .opts-pills{display:flex;flex-wrap:wrap;gap:9px}
+  .opts-pills button{padding:11px 18px;border:1px solid var(--line);border-radius:40px;font-size:13px;transition:.25s;color:var(--ink)}
+  .opts-pills button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
   .add-btn{width:100%;background:var(--ink);color:#fff;padding:17px;border-radius:40px;font-size:13px;letter-spacing:.16em;transition:.3s;font-weight:400}
   .add-btn:hover{background:var(--accent)}
 
@@ -244,7 +248,7 @@
     .modal-info h2{font-size:28px}
     .modal-info .m-price{font-size:19px;margin-bottom:16px}
     .modal-info p.desc{font-size:13px;margin-bottom:20px}
-    .sizes button{width:42px;height:42px}
+    .sizes button{min-width:42px;height:42px}
     .gallery-nav{width:38px;height:38px}
     .gallery-nav.prev{right:8px}.gallery-nav.next{left:8px}
     .drawer{width:100%;max-width:100vw}
@@ -429,6 +433,9 @@
     <video class="editorial-video" id="storyVid2" muted playsinline preload="auto">
       <source src="אתר_שיראל_ממוין_קל/אתר%20שיראל/וידאו%20-%20Videos/IMG_7598.mov" type="video/quicktime">
       <source src="אתר_שיראל_ממוין_קל/אתר%20שיראל/וידאו%20-%20Videos/IMG_7598.mov" type="video/mp4">
+    </video>
+    <video class="editorial-video" id="storyVid3" muted playsinline preload="auto">
+      <source src="אתר_שיראל_ממוין_קל/אתר%20שיראל/וידאו%20-%20Videos/IMG_WA0027.mp4" type="video/mp4">
     </video>
   </div>
   <div class="editorial-text">
@@ -721,7 +728,7 @@ const products = [
   ],
   desc:"ביקיני לבן קלאסי ונצחי. מינימליסטי, נקי ומחמיא בצורה יוצאת דופן על עור שזוף — פשטות שהיא תכלית העיצוב."},
 
-{id:12, name:"לאסה", cat:"women", type:"ביקיני", price:400, old:null, tag:"חדש",
+{id:12, name:"לאסה", cat:"women", type:"ביקיני", price:350, old:null, tag:"חדש",
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/לבן%20רקום%20-%20White%20Crochet/IMG_8634.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/לבן%20רקום%20-%20White%20Crochet/IMG_8636.jpeg",
   images:[
@@ -743,7 +750,7 @@ const products = [
   ],
   desc:"ביקיני בהדפס מנומר פראי ועוצמתי. הרוח של הסרנגטי על חוף הים — נועזת, סקסית ובלתי נשכחת."},
 
-{id:14, name:"מלח", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
+{id:14, name:"מלח", cat:"women", type:"ביקיני", price:400, old:null, tag:null,
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנוקד%20אפור%20-%20Grey%20Pattern/IMG_8304.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנוקד%20אפור%20-%20Grey%20Pattern/IMG_8316.jpeg",
   images:[
@@ -774,7 +781,7 @@ const products = [
   ],
   desc:"ביקיני בהדפס נקודות לבן עדין כניצני אביב. רך, נשי ומלא קסם — מביט על עולם בצבעים בהירים."},
 
-{id:17, name:"פורטו פינו", cat:"women", type:"ביקיני", price:350, old:null, tag:"חדש",
+{id:17, name:"פורטו פינו", cat:"women", type:"ביקיני", price:380, old:null, tag:"חדש",
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/משובץ%20כחול%20-%20Blue%20Gingham/IMG_8709.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/משובץ%20כחול%20-%20Blue%20Gingham/IMG_8709.jpeg",
   images:[
@@ -794,7 +801,7 @@ const products = [
   ],
   desc:"ביקיני בפסים כחול-לבן ימיים קלאסיים. אוויר של ריביירה צרפתית, נוכחות אלגנטית ומחמיאה."},
 
-{id:19, name:"קפרי", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
+{id:19, name:"קפרי", cat:"women", type:"ביקיני", price:400, old:null, tag:null,
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/פסים%20שחור-לבן%20-%20BW%20Stripes%20Set/IMG_8747.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/פסים%20שחור-לבן%20-%20BW%20Stripes%20Set/IMG_8749.jpeg",
   images:[
@@ -805,7 +812,7 @@ const products = [
   ],
   desc:"ביקיני בהדפס פסים שחור-לבן סרוג ומרהיב. אי קפרי, אור שמש ים-תיכוני — נקי, חד ולא יוצא מהאופנה לעולם."},
 
-{id:31, name:"קפרי ירוק", cat:"women", type:"ביקיני", price:380, old:null, tag:"חדש",
+{id:31, name:"קפרי ירוק", cat:"women", type:"ביקיני", price:350, old:null, tag:"חדש",
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/פסים%20ירוק-לבן%20-%20Green%20Stripes%20Set/IMG_8444.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/פסים%20ירוק-לבן%20-%20Green%20Stripes%20Set/IMG_8440.jpeg",
   images:[
@@ -835,6 +842,38 @@ const products = [
     "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/תכלת%20-%20Light%20Blue/IMG_8587.jpeg"
   ],
   desc:"ביקיני תכלת בהיר ורך כמי הלגון המלדיבי. גוון שמיים בבוקר שמחמיא ומרגיש כמו חופשה תמידית."},
+
+{id:34, name:"פלמינגו", cat:"women", type:"ביקיני", price:350, old:null, tag:"חדש",
+  img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20קורל%20-%20Coral%20Pink/coral-1.jpg",
+  img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20קורל%20-%20Coral%20Pink/coral-2.jpg",
+  images:[
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20קורל%20-%20Coral%20Pink/coral-1.jpg",
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20קורל%20-%20Coral%20Pink/coral-2.jpg",
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20קורל%20-%20Coral%20Pink/coral-3.jpg",
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20קורל%20-%20Coral%20Pink/coral-4.jpg",
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד%20קורל%20-%20Coral%20Pink/coral-5.jpg"
+  ],
+  desc:"ביקיני בגוון ורוד קורל רך ומחמיא, בגזרה מינימליסטית עם רצועות לבנות עדינות. קליל, נשי וקיצי — כמו שקיעה ורודה על החוף."},
+
+{id:35, name:"קפוצ׳ינו", cat:"women", type:"ביקיני", price:380, old:null, tag:"חדש",
+  img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חום%20מנוקד%20-%20Brown%20Dot/brown-dot-1.jpg",
+  img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חום%20מנוקד%20-%20Brown%20Dot/brown-dot-2.jpg",
+  images:[
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חום%20מנוקד%20-%20Brown%20Dot/brown-dot-1.jpg",
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חום%20מנוקד%20-%20Brown%20Dot/brown-dot-2.jpg"
+  ],
+  desc:"ביקיני מנוקד בשילוב חום ולבן עם חצאית-מטפחת תואמת. רטרו, מתוק ומלא קסם — גווני קפוצ׳ינו שמחמיאים לעור שזוף."},
+
+{id:36, name:"ספארי", cat:"women", type:"ביקיני", price:350, old:null, tag:"חדש",
+  img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חאקי%20מנוקד%20-%20Taupe%20Dot/taupe-1.jpg",
+  img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חאקי%20מנוקד%20-%20Taupe%20Dot/taupe-2.jpg",
+  images:[
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חאקי%20מנוקד%20-%20Taupe%20Dot/taupe-1.jpg",
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חאקי%20מנוקד%20-%20Taupe%20Dot/taupe-2.jpg",
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חאקי%20מנוקד%20-%20Taupe%20Dot/taupe-3.jpg",
+    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חאקי%20מנוקד%20-%20Taupe%20Dot/taupe-4.jpg"
+  ],
+  desc:"ביקיני מנוקד בגוון חאקי-טאופ טבעי עם פרטי חרוזים. מראה ספארי מתוחכם ורגוע — נייטרלי, אלגנטי ומחמיא בכל אור."},
 
 // ══════════════════════════════════════
 // MEN — 4 collections
@@ -957,8 +996,12 @@ const products = [
 
 ];
 const sizes=["XS","S","M","L","XL"];
+const topSizes=["XS","S","M","L","XL","2XL","3XL","4XL"];
+const bottomSizes=["XS","S","M","L","XL"];
+const bottomCuts=["חוטיני","בריזילאי","מלא"];
+const bottomCloses=["קשירות","רגיל","קשירות מתכוונן"];
 let cart=[];
-let modalState={prod:null,size:"M",imgIndex:0,images:[]};
+let modalState={prod:null,size:"M",topSize:"M",bottomSize:"M",bottomCut:"בריזילאי",bottomClose:"רגיל",imgIndex:0,images:[]};
 
 function imgUrl(path){
   return path.includes('/')?path:'images/'+path;
@@ -1024,7 +1067,7 @@ function filterTo(cat){
 
 function openModal(id){
   const p=products.find(x=>x.id===id);
-  modalState={prod:p,size:"M",imgIndex:0,images:productImages(p)};
+  modalState={prod:p,size:"M",topSize:"M",bottomSize:"M",bottomCut:"בריזילאי",bottomClose:"רגיל",imgIndex:0,images:productImages(p)};
   renderGallery();
   renderModal();
   document.getElementById('modal').classList.add('open');
@@ -1069,16 +1112,46 @@ function renderModal(){
       </a>`;
     return;
   }
+  const isBikini=p.type==='ביקיני';
+  let optionsHtml;
+  if(isBikini){
+    optionsHtml=`
+    <div class="opt-group">
+      <div class="opt-label">מידת חזייה (Top)</div>
+      <div class="sizes">${topSizes.map(s=>`<button class="${s===modalState.topSize?'active':''}" onclick="setTopSize('${s}')">${s}</button>`).join("")}</div>
+    </div>
+    <div class="opt-group">
+      <div class="opt-label">מידת תחתון (Bottom)</div>
+      <div class="sizes">${bottomSizes.map(s=>`<button class="${s===modalState.bottomSize?'active':''}" onclick="setBottomSize('${s}')">${s}</button>`).join("")}</div>
+    </div>
+    <div class="opt-group">
+      <div class="opt-label">גזרת תחתון</div>
+      <div class="opts-pills">${bottomCuts.map(s=>`<button class="${s===modalState.bottomCut?'active':''}" onclick="setBottomCut('${s}')">${s}</button>`).join("")}</div>
+    </div>
+    <div class="opt-group">
+      <div class="opt-label">סוג סגירה</div>
+      <div class="opts-pills">${bottomCloses.map(s=>`<button class="${s===modalState.bottomClose?'active':''}" onclick="setBottomClose('${s}')">${s}</button>`).join("")}</div>
+    </div>`;
+  }else{
+    optionsHtml=`
+    <div class="opt-group">
+      <div class="opt-label">מידה</div>
+      <div class="sizes">${sizes.map(s=>`<button class="${s===modalState.size?'active':''}" onclick="setSize('${s}')">${s}</button>`).join("")}</div>
+    </div>`;
+  }
   document.getElementById('modalInfo').innerHTML=`
     <div class="kicker">${catLabel} · ${p.type}</div>
     <h2>${p.name}</h2>
     <div class="m-price">₪${p.price}${p.old?`<s>₪${p.old}</s>`:""}</div>
     <p class="desc">${p.desc}</p>
-    <div class="opt-label">מידה</div>
-    <div class="sizes">${sizes.map(s=>`<button class="${s===modalState.size?'active':''}" onclick="setSize('${s}')">${s}</button>`).join("")}</div>
+    ${optionsHtml}
     <button class="add-btn" onclick="addToCart()">הוספה לסל · ₪${p.price}</button>`;
 }
 function setSize(s){modalState.size=s;renderModal();}
+function setTopSize(s){modalState.topSize=s;renderModal();}
+function setBottomSize(s){modalState.bottomSize=s;renderModal();}
+function setBottomCut(s){modalState.bottomCut=s;renderModal();}
+function setBottomClose(s){modalState.bottomClose=s;renderModal();}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow="";}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
 document.addEventListener('keydown',e=>{
@@ -1106,9 +1179,22 @@ document.addEventListener('keydown',e=>{
 
 function addToCart(){
   const p=modalState.prod;
-  const key=p.id+"-"+modalState.size;
+  const isBikini=p.type==='ביקיני';
+  let key,opts;
+  if(isBikini){
+    opts=[
+      ["מידת חזייה",modalState.topSize],
+      ["מידת תחתון",modalState.bottomSize],
+      ["גזרת תחתון",modalState.bottomCut],
+      ["סוג סגירה",modalState.bottomClose]
+    ];
+    key=p.id+"-"+modalState.topSize+"-"+modalState.bottomSize+"-"+modalState.bottomCut+"-"+modalState.bottomClose;
+  }else{
+    opts=[["מידה",modalState.size]];
+    key=p.id+"-"+modalState.size;
+  }
   const ex=cart.find(c=>c.key===key);
-  if(ex)ex.qty++; else cart.push({key,name:p.name,price:p.price,size:modalState.size,img:p.img,qty:1});
+  if(ex)ex.qty++; else cart.push({key,name:p.name,price:p.price,opts,img:p.img,qty:1});
   updateCart();closeModal();toast("נוסף לסל בהצלחה");
 }
 function updateCart(){
@@ -1126,7 +1212,7 @@ function updateCart(){
       <div class="ci-img" style="background-image:url('${imgUrl(c.img)}')"></div>
       <div class="ci-info">
         <h4>${c.name}</h4>
-        <div class="ci-meta">מידה ${c.size}</div>
+        <div class="ci-meta">${(c.opts||[]).map(o=>o[0]+": "+o[1]).join(" · ")}</div>
         <div class="qty"><button onclick="changeQty('${c.key}',1)">+</button><span>${c.qty}</span><button onclick="changeQty('${c.key}',-1)">−</button></div>
       </div>
       <div><div class="ci-price">₪${c.price*c.qty}</div><div class="ci-remove" onclick="removeItem('${c.key}')">הסרה</div></div>
@@ -1147,7 +1233,7 @@ function checkout(){
   const lines=["היי La Shirel! 🤍 אשמח להזמין:",""];
   cart.forEach(c=>{
     lines.push("▫ *"+c.name+"*");
-    lines.push("מידה: "+c.size);
+    (c.opts||[]).forEach(o=>lines.push(o[0]+": "+o[1]));
     lines.push("כמות: "+c.qty);
     lines.push("מחיר: ₪"+c.price*c.qty);
     lines.push("");
@@ -1289,17 +1375,18 @@ document.addEventListener('keydown',e=>{
 
 // ===== Story videos loop =====
 (function(){
-  var v1=document.getElementById('storyVid1'),v2=document.getElementById('storyVid2');
-  if(!v1||!v2)return;
+  var vids=['storyVid1','storyVid2','storyVid3'].map(function(id){return document.getElementById(id);}).filter(Boolean);
+  if(vids.length<2)return;
   function swap(from,to){
     from.classList.remove('is-active');
     to.currentTime=0;
     to.classList.add('is-active');
     var p=to.play();if(p&&p.catch)p.catch(function(){});
   }
-  v1.addEventListener('ended',function(){swap(v1,v2);});
-  v2.addEventListener('ended',function(){swap(v2,v1);});
-  var p=v1.play();if(p&&p.catch)p.catch(function(){});
+  vids.forEach(function(v,i){
+    v.addEventListener('ended',function(){swap(v,vids[(i+1)%vids.length]);});
+  });
+  var p=vids[0].play();if(p&&p.catch)p.catch(function(){});
 })();
 
 // ===== Cookie consent =====
