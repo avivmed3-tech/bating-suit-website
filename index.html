@@ -881,17 +881,8 @@ const products = [
   desc:"מכנס שחייה בהדפס פרחוני לבנדר ייחודי. נועז ומסוגנן — לגבר שיודע שסטייל לא מכיר גבולות."},
 
 // ══════════════════════════════════════
-// COUPLES — 6 matching sets
+// COUPLES — 5 matching sets
 // ══════════════════════════════════════
-
-{id:25, name:"בוהמיה", cat:"couples", type:"סט תואם", price:600, old:null, tag:"זוגי",
-  img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/זוגי/ורוד-אדום%20מנוקד%20-%20Pink%20Red%20Dot/IMG_8682.jpeg",
-  img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/זוגי/ורוד-אדום%20מנוקד%20-%20Pink%20Red%20Dot/IMG_8686.jpeg",
-  images:[
-    "אתר_שיראל_ממוין_קל/אתר%20שיראל/זוגי/ורוד-אדום%20מנוקד%20-%20Pink%20Red%20Dot/IMG_8682.jpeg",
-    "אתר_שיראל_ממוין_קל/אתר%20שיראל/זוגי/ורוד-אדום%20מנוקד%20-%20Pink%20Red%20Dot/IMG_8686.jpeg"
-  ],
-  desc:"סט תואם לזוג בהדפס נקודות ורוד-אדום בוהמי ושובב. ביקיני לאישה ומכנס שחייה תואם לגבר — כי אהבה זה גם סטייל."},
 
 {id:26, name:"טרופיקנה", cat:"couples", type:"סט תואם", price:600, old:null, tag:"זוגי",
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/זוגי/ירוק%20-%20Green/IMG_8605.jpeg",
@@ -1097,9 +1088,8 @@ function renderModal(){
     return;
   }
   const isBikini=p.type==='ביקיני';
-  let optionsHtml;
-  if(isBikini){
-    optionsHtml=`
+  const isCouple=p.cat==='couples';
+  const womanOpts=`
     <div class="opt-group">
       <div class="opt-label">מידת חזייה (Top)</div>
       <div class="sizes">${topSizes.map(s=>`<button class="${s===modalState.topSize?'active':''}" onclick="setTopSize('${s}')">${s}</button>`).join("")}</div>
@@ -1116,12 +1106,22 @@ function renderModal(){
       <div class="opt-label">סוג סגירה</div>
       <div class="opts-pills">${bottomCloses.map(s=>`<button class="${s===modalState.bottomClose?'active':''}" onclick="setBottomClose('${s}')">${s}</button>`).join("")}</div>
     </div>`;
-  }else{
-    optionsHtml=`
+  const manOpts=`
     <div class="opt-group">
       <div class="opt-label">מידה</div>
       <div class="sizes">${sizes.map(s=>`<button class="${s===modalState.size?'active':''}" onclick="setSize('${s}')">${s}</button>`).join("")}</div>
     </div>`;
+  let optionsHtml;
+  if(isCouple){
+    optionsHtml=`
+    <div class="opt-label" style="font-weight:600;letter-spacing:.12em;color:var(--accent);margin-top:4px">לאישה</div>
+    ${womanOpts}
+    <div class="opt-label" style="font-weight:600;letter-spacing:.12em;color:var(--accent);margin-top:14px">לגבר</div>
+    ${manOpts}`;
+  }else if(isBikini){
+    optionsHtml=womanOpts;
+  }else{
+    optionsHtml=manOpts;
   }
   const addonExtra=p.cat==='women'?((modalState.skirt?100:0)+(modalState.bandana?50:0)):0;
   const totalPrice=p.price+addonExtra;
@@ -1178,8 +1178,18 @@ document.addEventListener('keydown',e=>{
 function addToCart(){
   const p=modalState.prod;
   const isBikini=p.type==='ביקיני';
+  const isCouple=p.cat==='couples';
   let key,opts;
-  if(isBikini){
+  if(isCouple){
+    opts=[
+      ["אישה · מידת חזייה",modalState.topSize],
+      ["אישה · מידת תחתון",modalState.bottomSize],
+      ["אישה · גזרת תחתון",modalState.bottomCut],
+      ["אישה · סוג סגירה",modalState.bottomClose],
+      ["גבר · מידה",modalState.size]
+    ];
+    key=p.id+"-w"+modalState.topSize+"-"+modalState.bottomSize+"-"+modalState.bottomCut+"-"+modalState.bottomClose+"-m"+modalState.size;
+  }else if(isBikini){
     opts=[
       ["מידת חזייה",modalState.topSize],
       ["מידת תחתון",modalState.bottomSize],
