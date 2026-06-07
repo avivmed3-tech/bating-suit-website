@@ -298,7 +298,6 @@
     <a href="#women" onclick="filterTo('women')">Women</a>
     <a href="#women" onclick="filterTo('men')">Men</a>
     <a href="#women" onclick="filterTo('couples')">Couples</a>
-    <a href="#women" onclick="filterTo('beach')">Beachwear</a>
     <a href="#about">Story</a>
   </nav>
   <div class="logo">La Shirel</div>
@@ -371,7 +370,6 @@
     <button data-f="women">נשים</button>
     <button data-f="men">גברים</button>
     <button data-f="couples">זוגות</button>
-    <button data-f="beach">בגדי חוף</button>
     <button data-f="custom">התאמה אישית</button>
   </div>
   <div class="grid" id="grid"></div>
@@ -468,7 +466,6 @@
       <a href="#women" onclick="filterTo('women')">בגדי ים נשים</a>
       <a href="#women" onclick="filterTo('men')">בגדי ים גברים</a>
       <a href="#women" onclick="filterTo('couples')">סטים זוגיים</a>
-      <a href="#women" onclick="filterTo('beach')">בגדי חוף</a>
       <a href="#women" onclick="filterTo('custom')">התאמה אישית</a>
     </div>
     <div class="foot-col">
@@ -519,10 +516,6 @@
     <a href="#women" onclick="menuGo('couples')">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
       סטים זוגיים
-    </a>
-    <a href="#women" onclick="menuGo('beach')">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      בגדי חוף
     </a>
     <a href="#women" onclick="menuGo('custom')">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>
@@ -643,7 +636,7 @@ const products = [
   ],
   desc:"ביקיני אפור בהיר עם קסם מינימליסטי צרפתי. אלגנטי, עדין ונצחי — כמו שחיים בפריז."},
 
-{id:3, name:"ליברטי", cat:"women", type:"ביקיני", price:350, old:null, tag:"חדש",
+{id:3, name:"אמה", cat:"women", type:"ביקיני", price:350, old:null, tag:"חדש",
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/דגל%20אדום-כחול-לבן%20-%20USA%20Flag/IMG_8408.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/דגל%20אדום-כחול-לבן%20-%20USA%20Flag/IMG_8631.jpeg",
   images:[
@@ -680,16 +673,7 @@ const products = [
   ],
   desc:"בגד ים שלם (one-piece) בגוון ורוד חם כשמשות ולנסיה. גזרה מחמיאה שעוטפת ומרגישה הכי את."},
 
-{id:7, name:"רוז", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
-  img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד-אדום%20מנוקד%20-%20Pink%20Red%20Dot/IMG_8678.jpeg",
-  img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד-אדום%20מנוקד%20-%20Pink%20Red%20Dot/IMG_8688.jpeg",
-  images:[
-    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד-אדום%20מנוקד%20-%20Pink%20Red%20Dot/IMG_8678.jpeg",
-    "אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ורוד-אדום%20מנוקד%20-%20Pink%20Red%20Dot/IMG_8688.jpeg"
-  ],
-  desc:"ביקיני בהדפס נקודות ורוד-אדום שובב ומרגש. כמו כפתורי ורד — עדין ונועז בו-זמנית."},
-
-{id:8, name:"קקאו", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
+{id:8, name:"לנור", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חום%20-%20Brown/IMG_8210.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חום%20-%20Brown/IMG_8232.jpeg",
   images:[
@@ -702,7 +686,7 @@ const products = [
   ],
   desc:"ביקיני בגוון קקאו עשיר ועמוק. חמים כשוקולד מריר, מחמיא בצורה יוצאת דופן על עור שזוף."},
 
-{id:9, name:"אמרלד", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
+{id:9, name:"אריה", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ירוק%20-%20Green/IMG_8611.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/ירוק%20-%20Green/IMG_8611.jpeg",
   images:[
@@ -710,7 +694,7 @@ const products = [
   ],
   desc:"ביקיני ירוק אמרלד עשיר ומרהיב. צבע האבן היקרה שמחמיא על כל גוון עור ומשדר כוח ונוכחות."},
 
-{id:10, name:"אנמון", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
+{id:10, name:"מיקונוס", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8694.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/כחול%20פרחוני%20-%20Blue%20Floral%20Set/IMG_8374.jpeg",
   images:[
@@ -737,7 +721,7 @@ const products = [
   ],
   desc:"ביקיני לבן עם עיטורי קרושה עדינים, נתפר בקפידה. תחרה ימית שהופכת כל חוף לבמה אישית."},
 
-{id:13, name:"סרנגטי", cat:"women", type:"ביקיני", price:350, old:null, tag:"להיט",
+{id:13, name:"רוז", cat:"women", type:"ביקיני", price:350, old:null, tag:"להיט",
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנומר%20-%20Leopard/IMG_7999.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנומר%20-%20Leopard/IMG_8001.jpeg",
   images:[
@@ -750,7 +734,7 @@ const products = [
   ],
   desc:"ביקיני בהדפס מנומר פראי ועוצמתי. הרוח של הסרנגטי על חוף הים — נועזת, סקסית ובלתי נשכחת."},
 
-{id:14, name:"מלח", cat:"women", type:"ביקיני", price:400, old:null, tag:null,
+{id:14, name:"ליאן", cat:"women", type:"ביקיני", price:400, old:null, tag:null,
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנוקד%20אפור%20-%20Grey%20Pattern/IMG_8304.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנוקד%20אפור%20-%20Grey%20Pattern/IMG_8316.jpeg",
   images:[
@@ -760,7 +744,7 @@ const products = [
   ],
   desc:"ביקיני בהדפס נקודות אפור עדין כגרגירי מלח ים. מינימליסטי, מתוחכם ובעל נוכחות שקטה."},
 
-{id:15, name:"מונוכרום", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
+{id:15, name:"קטליה", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנוקד%20אפור-שחור%20-%20Black%20Dot%20Set/IMG_8520.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנוקד%20אפור-שחור%20-%20Black%20Dot%20Set/IMG_8524.jpeg",
   images:[
@@ -770,7 +754,7 @@ const products = [
   ],
   desc:"ביקיני בהדפס נקודות שחור-אפור גרפי ועכשווי. קלאסי, חד ואלגנטי — מונוכרום שמדבר בקול רם."},
 
-{id:16, name:"ניצן", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
+{id:16, name:"עלמה", cat:"women", type:"ביקיני", price:350, old:null, tag:null,
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנוקד%20לבן%20-%20White%20Dot/IMG_8139.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/מנוקד%20לבן%20-%20White%20Dot/IMG_8143.jpeg",
   images:[
@@ -864,7 +848,7 @@ const products = [
   ],
   desc:"ביקיני מנוקד בשילוב חום ולבן עם חצאית-מטפחת תואמת. רטרו, מתוק ומלא קסם — גווני קפוצ׳ינו שמחמיאים לעור שזוף."},
 
-{id:36, name:"ספארי", cat:"women", type:"ביקיני", price:350, old:null, tag:"חדש",
+{id:36, name:"ברברה", cat:"women", type:"ביקיני", price:350, old:null, tag:"חדש",
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חאקי%20מנוקד%20-%20Taupe%20Dot/taupe-1.jpg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/נשים/חאקי%20מנוקד%20-%20Taupe%20Dot/taupe-2.jpg",
   images:[
@@ -888,7 +872,7 @@ const products = [
   ],
   desc:"מכנס שחייה בהדפס פרחוני כחול מסוגנן. גזרה קלאסית עם שרוך מתכוונן — לגבר שמביא סטייל גם למים."},
 
-{id:24, name:"פרובאנס", cat:"men", type:"מכנס שחייה", price:329, old:null, tag:null,
+{id:24, name:"ברברה", cat:"men", type:"מכנס שחייה", price:329, old:null, tag:null,
   img:"אתר_שיראל_ממוין_קל/אתר%20שיראל/גברים/פרחוני%20סגול%20-%20Lilac%20Floral%20Set/IMG_8409.jpeg",
   img2:"אתר_שיראל_ממוין_קל/אתר%20שיראל/גברים/פרחוני%20סגול%20-%20Lilac%20Floral%20Set/IMG_8409.jpeg",
   images:[
@@ -1001,7 +985,7 @@ const bottomSizes=["XS","S","M","L","XL"];
 const bottomCuts=["חוטיני","בריזילאי","מלא"];
 const bottomCloses=["קשירות","רגיל","קשירות מתכוונן"];
 let cart=[];
-let modalState={prod:null,size:"M",topSize:"M",bottomSize:"M",bottomCut:"בריזילאי",bottomClose:"רגיל",imgIndex:0,images:[]};
+let modalState={prod:null,size:"M",topSize:"M",bottomSize:"M",bottomCut:"בריזילאי",bottomClose:"רגיל",skirt:false,bandana:false,imgIndex:0,images:[]};
 
 function imgUrl(path){
   return path.includes('/')?path:'images/'+path;
@@ -1067,7 +1051,7 @@ function filterTo(cat){
 
 function openModal(id){
   const p=products.find(x=>x.id===id);
-  modalState={prod:p,size:"M",topSize:"M",bottomSize:"M",bottomCut:"בריזילאי",bottomClose:"רגיל",imgIndex:0,images:productImages(p)};
+  modalState={prod:p,size:"M",topSize:"M",bottomSize:"M",bottomCut:"בריזילאי",bottomClose:"רגיל",skirt:false,bandana:false,imgIndex:0,images:productImages(p)};
   renderGallery();
   renderModal();
   document.getElementById('modal').classList.add('open');
@@ -1139,19 +1123,33 @@ function renderModal(){
       <div class="sizes">${sizes.map(s=>`<button class="${s===modalState.size?'active':''}" onclick="setSize('${s}')">${s}</button>`).join("")}</div>
     </div>`;
   }
+  const addonExtra=p.cat==='women'?((modalState.skirt?100:0)+(modalState.bandana?50:0)):0;
+  const totalPrice=p.price+addonExtra;
+  let addonsHtml="";
+  if(p.cat==='women'){
+    addonsHtml=`
+    <div class="opt-group">
+      <div class="opt-label">תוספות (אופציונלי)</div>
+      <div class="opts-pills">
+        <button class="${modalState.skirt?'active':''}" onclick="toggleAddon('skirt')">חצאית +₪100</button>
+        <button class="${modalState.bandana?'active':''}" onclick="toggleAddon('bandana')">בנדנה +₪50</button>
+      </div>
+    </div>`;
+  }
   document.getElementById('modalInfo').innerHTML=`
     <div class="kicker">${catLabel} · ${p.type}</div>
     <h2>${p.name}</h2>
-    <div class="m-price">₪${p.price}${p.old?`<s>₪${p.old}</s>`:""}</div>
+    <div class="m-price">₪${totalPrice}${p.old?`<s>₪${p.old}</s>`:""}</div>
     <p class="desc">${p.desc}</p>
-    ${optionsHtml}
-    <button class="add-btn" onclick="addToCart()">הוספה לסל · ₪${p.price}</button>`;
+    ${optionsHtml}${addonsHtml}
+    <button class="add-btn" onclick="addToCart()">הוספה לסל · ₪${totalPrice}</button>`;
 }
 function setSize(s){modalState.size=s;renderModal();}
 function setTopSize(s){modalState.topSize=s;renderModal();}
 function setBottomSize(s){modalState.bottomSize=s;renderModal();}
 function setBottomCut(s){modalState.bottomCut=s;renderModal();}
 function setBottomClose(s){modalState.bottomClose=s;renderModal();}
+function toggleAddon(a){modalState[a]=!modalState[a];renderModal();}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow="";}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target.id==='modal')closeModal();});
 document.addEventListener('keydown',e=>{
@@ -1193,8 +1191,14 @@ function addToCart(){
     opts=[["מידה",modalState.size]];
     key=p.id+"-"+modalState.size;
   }
+  let addonExtra=0;
+  if(p.cat==='women'){
+    if(modalState.skirt){opts.push(["תוספת","חצאית (+₪100)"]);key+="-skirt";addonExtra+=100;}
+    if(modalState.bandana){opts.push(["תוספת","בנדנה (+₪50)"]);key+="-bandana";addonExtra+=50;}
+  }
+  const itemPrice=p.price+addonExtra;
   const ex=cart.find(c=>c.key===key);
-  if(ex)ex.qty++; else cart.push({key,name:p.name,price:p.price,opts,img:p.img,qty:1});
+  if(ex)ex.qty++; else cart.push({key,name:p.name,price:itemPrice,opts,img:p.img,qty:1});
   updateCart();closeModal();toast("נוסף לסל בהצלחה");
 }
 function updateCart(){
