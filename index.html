@@ -186,10 +186,11 @@
 
   footer{background:var(--bg);padding:72px 48px 36px}
   .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1280px;margin:0 auto 50px}
+  .foot-grid>*{min-width:0}
   .foot-brand .logo{color:var(--ink);font-size:30px}
   .foot-brand p{color:var(--soft);font-size:14px;margin-top:16px;max-width:280px}
   .foot-col h5{font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;color:var(--ink)}
-  .foot-col a{display:block;color:var(--soft);font-size:14px;margin-bottom:11px;transition:color .3s;cursor:pointer}
+  .foot-col a{display:block;color:var(--soft);font-size:14px;margin-bottom:11px;transition:color .3s;cursor:pointer;overflow-wrap:anywhere}
   .foot-col a:hover{color:var(--accent)}
   .foot-bottom{border-top:1px solid var(--line);padding-top:26px;max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;font-size:12px;color:var(--soft);letter-spacing:.04em}
 
@@ -309,6 +310,8 @@
     .section-head{margin-bottom:36px}
     .hero h1{font-size:clamp(34px,11vw,46px)}
     .filters{gap:6px}.filters button{padding:8px 16px;font-size:12px}
+    .foot-grid{grid-template-columns:1fr;gap:30px;text-align:center}
+    .foot-brand p{max-width:none;margin-inline:auto}
   }
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
   a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
