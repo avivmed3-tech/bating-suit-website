@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bating-suit-website.vercel.app/sitemap.xml
+Sitemap: https://lashirel.com/sitemap.xml
